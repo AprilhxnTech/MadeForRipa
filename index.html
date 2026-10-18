@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta id="vp" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover" />
@@ -17,37 +17,31 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-html{
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{
   font-family:'Quicksand',system-ui,-apple-system,sans-serif;
-  font-size:16px;
-  color:var(--ink); background:#fff6f8; overflow:hidden;
-  -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color:transparent;
+  font-size:16px;color:var(--ink);background:#fff6f8;overflow:hidden;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
 }
 button{font-family:inherit;color:inherit;border:0;background:none;cursor:pointer}
 img{display:block;max-width:100%}
 ul{list-style:none}
 
-/* ============ SCREEN (lock) ============ */
+/* ============ SCREEN ============ */
 .screen{
-  position:fixed; inset:0; z-index:120;
-  display:flex; align-items:center; justify-content:center;
-  padding:24px;
+  position:fixed;inset:0;z-index:120;
+  display:flex;align-items:center;justify-content:center;padding:24px;
   background:
     radial-gradient(120% 90% at 12% 0%, #fff3f7 0%, rgba(255,243,247,0) 55%),
     radial-gradient(110% 85% at 88% 6%, #ffe1ed 0%, rgba(255,225,237,0) 60%),
     linear-gradient(180deg,#fff8fb 0%,#fde9f1 52%,#f9dce8 100%);
-  transition:opacity .65s ease, visibility .65s; overflow-y:auto;
+  transition:opacity .65s ease, visibility .65s;overflow-y:auto;
 }
 .screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
 .glass-card{
   width:100%;max-width:460px;text-align:center;
   padding:42px 32px 38px;border-radius:28px;
-  background:rgba(255,255,255,.7);
-  border:1px solid rgba(255,255,255,.95);
+  background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.95);
   box-shadow:0 40px 80px -50px rgba(184,59,99,.95), inset 0 1px 0 #fff;
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   animation:cardRise .8s cubic-bezier(.2,.9,.3,1) backwards;
@@ -87,10 +81,7 @@ ul{list-style:none}
 
 /* ============ FLOATING BUTTONS ============ */
 .back-btn{
-  position:fixed;
-  top:calc(16px + var(--safe-top));
-  right:16px;
-  z-index:80;
+  position:fixed;top:calc(16px + var(--safe-top));right:16px;z-index:80;
   display:inline-flex;align-items:center;gap:8px;
   padding:12px 20px;border-radius:999px;
   font-size:14px;font-weight:700;letter-spacing:.02em;
@@ -105,10 +96,7 @@ ul{list-style:none}
 #page-closing .back-btn{background:rgba(0,0,0,.55);color:#ffe9f1;border-color:rgba(255,233,241,.28);z-index:40}
 
 #musicToggle{
-  position:fixed;
-  top:calc(16px + var(--safe-top));
-  left:16px;
-  z-index:80;
+  position:fixed;top:calc(16px + var(--safe-top));left:16px;z-index:80;
   width:52px;height:52px;border-radius:50%;
   display:grid;place-items:center;
   background:rgba(255,255,255,.88);
@@ -116,9 +104,7 @@ ul{list-style:none}
   border:1px solid rgba(232,106,146,.28);
   box-shadow:0 12px 28px -16px rgba(184,59,99,.85);
   transition:transform .25s, background .35s, opacity .4s;
-  touch-action:none;
-  cursor:grab;
-  user-select:none;-webkit-user-select:none;
+  touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;
 }
 #musicToggle.dragging{cursor:grabbing;transform:scale(1.05)}
 body.locked #musicToggle{opacity:0;pointer-events:none}
@@ -134,12 +120,8 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 #musicToggle .eq i:nth-child(3){height:11px;animation-delay:.36s}
 @keyframes eqBar{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
 
-/* Fullscreen toggle - muncul di bawah music toggle saat tidak fullscreen */
 #fsToggle{
-  position:fixed;
-  top:calc(78px + var(--safe-top));
-  left:16px;
-  z-index:80;
+  position:fixed;top:calc(78px + var(--safe-top));left:16px;z-index:80;
   width:44px;height:44px;border-radius:50%;
   display:grid;place-items:center;
   background:rgba(255,255,255,.85);
@@ -157,12 +139,12 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 
 /* ============ PAGES ============ */
 .page{
-  position:fixed; inset:0; overflow-y:auto; overflow-x:hidden;
+  position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;
   -webkit-overflow-scrolling:touch;
-  opacity:0; visibility:hidden; pointer-events:none;
+  opacity:0;visibility:hidden;pointer-events:none;
   transform:translateY(14px);
   transition:opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1), visibility .55s;
-  padding:100px 22px 70px; z-index:1;
+  padding:100px 22px 70px;z-index:1;
 }
 .page.active{opacity:1;visibility:visible;pointer-events:auto;transform:none;z-index:2}
 .stage{width:100%;max-width:620px;margin:0 auto;min-height:calc(100vh - 170px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
@@ -186,19 +168,10 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 .home-title em{font-style:italic;color:var(--rose-deep)}
 .home-name{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(58px,12vw,98px);line-height:.85;color:var(--rose);margin-top:2px;text-shadow:0 10px 30px rgba(232,106,146,.28)}
 .home-sub{margin:24px auto 0;max-width:400px;font-size:15.5px;line-height:1.85;color:var(--ink-soft);font-weight:500}
-
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:14px;
-  margin-top:44px;
-  width:100%;
-}
+.menu-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:14px;margin-top:44px;width:100%}
 .menu-card{
-  position:relative;overflow:hidden;
-  padding:26px 12px 22px;border-radius:24px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.95);
+  position:relative;overflow:hidden;padding:26px 12px 22px;border-radius:24px;
+  background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.95);
   box-shadow:0 20px 40px -24px rgba(184,59,99,.85), inset 0 1px 0 rgba(255,255,255,.95);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   display:flex;flex-direction:column;align-items:center;gap:9px;
@@ -218,14 +191,7 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 .menu-card:nth-child(4){animation-delay:.29s}
 .menu-card:nth-child(5){animation-delay:.37s}
 @keyframes cardIn{from{opacity:0;transform:translateY(22px) scale(.96)}}
-
-/* Mobile: 2+2+1 centered */
-.menu-card:nth-child(5){
-  grid-column:1 / -1;
-  width:calc(50% - 7px);
-  justify-self:center;
-}
-
+.menu-card:nth-child(5){grid-column:1 / -1;width:calc(50% - 7px);justify-self:center}
 .home-foot{margin-top:40px;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--rose-deep);opacity:.5;font-weight:600}
 
 /* ============ CANDLE ============ */
@@ -390,41 +356,94 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 .letter-sign{margin-top:26px;font-family:'Caveat',cursive;font-size:21px;color:#5a3a45;line-height:1.5;text-align:right}
 .letter-sign span{display:inline-block;margin-top:4px;font-size:30px;color:var(--rose-deep)}
 
-/* ============ CLOSING / CINEMA ============ */
-#page-closing{padding:0;background:#1a0f14;overflow:hidden}
-.cinema{position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;background:#1a0f14}
+/* ============ CLOSING / SEASONS ============ */
+#page-closing{
+  padding:0;overflow:hidden;
+  background:#05070d;
+}
+.cinema{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;overflow:hidden;
+  background:#05070d;
+}
 
-.cinema-photos{position:absolute;inset:0;z-index:1;overflow:hidden;background:#1a0f14}
-.cinema-photo-wrap{position:absolute;inset:-20px;will-change:transform}
-.cinema-photo{width:100%;height:100%;object-fit:cover;opacity:0;will-change:opacity,transform;background:#1a0f14}
-@keyframes kenburnsA{0%{transform:scale(1.05) translate(0,0)}100%{transform:scale(1.18) translate(-2%,-1.5%)}}
-@keyframes kenburnsB{0%{transform:scale(1.05) translate(0,0)}100%{transform:scale(1.18) translate(2%,1.5%)}}
+#cinemaSky,#cinemaWeather,#cinemaFireworks{
+  position:absolute;inset:0;width:100%;height:100%;
+  display:block;pointer-events:none;
+}
+#cinemaSky{z-index:0;transition:opacity 3s ease}
+#cinemaWeather{z-index:1;transition:opacity 2s ease}
+#cinemaFireworks{z-index:3}
 
-#cinemaParticles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.cinema-transition{
+  position:absolute;inset:0;
+  background:#000;
+  opacity:0;pointer-events:none;z-index:2;
+}
 
-.cinema-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,0,0,.22) 80%,rgba(0,0,0,.45) 100%);pointer-events:none;z-index:6}
-.cinema-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");opacity:.22;mix-blend-mode:overlay;pointer-events:none;z-index:7;animation:grainShift .5s steps(2) infinite}
+.cinema-overlay{
+  position:absolute;inset:0;
+  background:#000;opacity:.2;
+  pointer-events:none;z-index:4;
+  transition:opacity 1.5s ease;
+}
+body.on-finale .cinema-overlay{opacity:.08}
+
+.cinema-vignette{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,transparent 35%,rgba(0,0,0,.35) 80%,rgba(0,0,0,.65) 100%);
+  pointer-events:none;z-index:5;
+}
+.cinema-grain{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  opacity:.18;mix-blend-mode:overlay;pointer-events:none;z-index:6;
+  animation:grainShift .5s steps(2) infinite;
+}
 @keyframes grainShift{0%{transform:translate(0,0)}25%{transform:translate(-1px,1px)}50%{transform:translate(1px,-1px)}75%{transform:translate(-1px,-1px)}100%{transform:translate(1px,1px)}}
 
-.cinema-topbar{position:absolute;top:0;left:0;right:0;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:rgba(255,240,245,.85);font-size:11.5px;letter-spacing:.35em;text-transform:uppercase;font-weight:700;background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent);pointer-events:none}
-.cinema-label{margin-left:80px}
-.cinema-counter{font-family:'Quicksand',sans-serif;font-size:12.5px;letter-spacing:.2em;color:rgba(255,220,180,.9);font-variant-numeric:tabular-nums}
+.cinema-topbar{
+  position:absolute;top:0;left:0;right:0;padding:22px 24px;
+  display:flex;justify-content:flex-start;align-items:center;
+  z-index:10;color:rgba(255,240,245,.85);font-size:11.5px;letter-spacing:.35em;
+  text-transform:uppercase;font-weight:700;
+  background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent);
+  pointer-events:none;
+  transition:opacity .8s ease;
+}
+.cinema-label{opacity:.85;transition:opacity 1s ease}
 
-.cinema-lyric-wrap{position:absolute;left:0;right:0;bottom:42%;padding:0 30px;text-align:center;z-index:10;pointer-events:none}
-.cinema-lyric{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(24px,4.5vw,46px);line-height:1.35;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.9),0 0 60px rgba(232,106,146,.5);opacity:0;transform:translateY(20px);letter-spacing:-.01em;max-width:900px;margin:0 auto;transition:color .5s}
+.cinema-lyric-wrap{
+  position:absolute;left:0;right:0;bottom:55%;
+  padding:0 30px;text-align:center;z-index:10;pointer-events:none;
+  transition:opacity .8s ease;
+}
+.cinema-lyric-wrap.faded{opacity:0}
+
+.cinema-lyric{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:500;
+  font-size:clamp(24px,4.5vw,46px);line-height:1.35;color:#fff;
+  opacity:0;transform:translateY(20px);letter-spacing:-.01em;
+  max-width:900px;margin:0 auto;transition:color .5s;
+}
+
+body[data-season="winter"] .cinema-lyric{ color:#fff; text-shadow:0 2px 20px rgba(0,0,0,.95), 0 0 30px rgba(0,0,0,.85), 0 0 60px rgba(180,220,255,.65); }
+body[data-season="spring"] .cinema-lyric{ color:#fff; text-shadow:0 2px 20px rgba(60,20,40,.9), 0 0 30px rgba(40,10,30,.75), 0 0 60px rgba(255,180,210,.7); }
+body[data-season="summer"] .cinema-lyric{ color:#fff; text-shadow:0 2px 20px rgba(80,30,10,.95), 0 0 30px rgba(60,20,10,.85), 0 0 60px rgba(255,200,120,.7); }
+body[data-season="autumn"] .cinema-lyric{ color:#fff; text-shadow:0 2px 20px rgba(40,15,10,.95), 0 0 30px rgba(30,10,8,.85), 0 0 60px rgba(255,160,80,.7); }
+
 .cinema-lyric.show{animation:lyricIn 1.4s cubic-bezier(.2,.9,.3,1) forwards}
 @keyframes lyricIn{0%{opacity:0;transform:translateY(24px);filter:blur(8px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
-.cinema-lyric[data-mood="hearts"]{text-shadow:0 2px 20px rgba(0,0,0,.9),0 0 60px rgba(232,106,146,.75)}
-.cinema-lyric[data-mood="gold"]{text-shadow:0 2px 20px rgba(0,0,0,.9),0 0 60px rgba(217,178,111,.75)}
-.cinema-lyric[data-mood="sparkle"]{text-shadow:0 2px 20px rgba(0,0,0,.9),0 0 60px rgba(255,220,180,.7)}
-.cinema-lyric[data-mood="dust"]{text-shadow:0 2px 20px rgba(0,0,0,.9),0 0 60px rgba(180,140,120,.55)}
 
-.cinema-opening{position:absolute;inset:0;background:transparent;display:grid;place-items:center;z-index:30;transition:opacity 1.4s ease;pointer-events:none}
+.cinema-opening{
+  position:absolute;inset:0;background:transparent;
+  display:grid;place-items:center;z-index:30;
+  transition:opacity 1.4s ease;pointer-events:none;
+}
 .cinema-opening.reveal{opacity:0}
 .cinema-opening p{
   font-family:'Caveat',cursive;font-size:clamp(30px,5vw,48px);
-  color:rgba(255,248,250,.96);
-  letter-spacing:.02em;opacity:0;
+  color:rgba(255,248,250,.96);letter-spacing:.02em;opacity:0;
   animation:openingText 5s ease .3s forwards;
   text-shadow:0 4px 40px rgba(0,0,0,.95), 0 0 20px rgba(0,0,0,.8), 0 0 60px rgba(232,106,146,.35);
   padding:20px 40px;
@@ -432,33 +451,42 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 @keyframes openingText{0%{opacity:0;letter-spacing:.2em;filter:blur(4px)}25%{opacity:1;letter-spacing:.02em;filter:blur(0)}70%{opacity:1}100%{opacity:0;letter-spacing:.02em;filter:blur(0)}}
 
 .cinema-ending{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 45%,rgba(8,4,6,.72) 0%,rgba(8,4,6,.4) 55%,rgba(8,4,6,.05) 100%);
-  display:grid;place-items:center;z-index:32;opacity:0;transition:opacity 2.5s ease;pointer-events:none;text-align:center;padding:30px;
+  position:absolute;inset:0;background:transparent;
+  display:grid;place-items:center;z-index:32;
+  opacity:0;transition:opacity 1.8s ease;pointer-events:none;text-align:center;padding:30px;
 }
 .cinema-ending.show{opacity:1}
-.cinema-ending-inner{transform:translateY(20px);transition:transform 2.5s cubic-bezier(.2,1,.3,1)}
+.cinema-ending-inner{transform:translateY(20px);transition:transform 2s cubic-bezier(.2,1,.3,1)}
 .cinema-ending.show .cinema-ending-inner{transform:translateY(0)}
 .cinema-ending-small{
   font-family:'Caveat',cursive;font-size:clamp(20px,2.4vw,28px);
-  color:rgba(255,225,190,.9);letter-spacing:.1em;margin-bottom:18px;opacity:0;
-  transition:opacity 2s ease .5s;
-  text-shadow:0 2px 16px rgba(0,0,0,.85);
+  color:rgba(255,230,200,.95);letter-spacing:.1em;margin-bottom:18px;
+  opacity:0;transition:opacity 1.2s ease .3s;
+  text-shadow:0 2px 10px rgba(0,0,0,.85), 0 0 20px rgba(255,200,140,.4);
 }
 .cinema-ending.show .cinema-ending-small{opacity:1}
 .cinema-ending-title{
-  font-family:'Playfair Display',serif;font-weight:500;
+  font-family:'Playfair Display',serif;font-weight:600;
   font-size:clamp(36px,7vw,76px);line-height:1.12;
-  color:transparent;
-  background:linear-gradient(135deg,#fff 0%,#ffd6e6 45%,#f0dcb4 85%);
-  -webkit-background-clip:text;background-clip:text;
+  color:#ffffff;
   letter-spacing:-.02em;opacity:0;transform:scale(.92);
-  transition:opacity 2.5s ease 1.2s,transform 2.5s cubic-bezier(.2,1,.3,1) 1.2s;
-  filter:drop-shadow(0 4px 30px rgba(0,0,0,.9)) drop-shadow(0 0 60px rgba(232,106,146,.4));
+  transition:opacity 2s ease .8s,transform 2s cubic-bezier(.2,1,.3,1) .8s;
+  text-shadow:
+    0 0 8px rgba(255,255,255,.95),
+    0 0 22px rgba(255,240,220,.9),
+    0 0 50px rgba(255,210,160,.75),
+    0 0 90px rgba(232,106,146,.6),
+    0 0 140px rgba(232,106,146,.35),
+    0 2px 4px rgba(0,0,0,.55);
 }
 .cinema-ending.show .cinema-ending-title{opacity:1;transform:scale(1)}
 
-.cinema-player{position:absolute;bottom:0;left:0;right:0;padding:22px 26px 26px;background:linear-gradient(to top, rgba(8,4,6,.94) 30%, rgba(8,4,6,.7) 70%, transparent);z-index:15;color:#fff}
+.cinema-player{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:22px 26px 26px;
+  background:linear-gradient(to top, rgba(8,4,6,.94) 30%, rgba(8,4,6,.7) 70%, transparent);
+  z-index:15;color:#fff;
+}
 .player-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
 .player-art{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#f4a6bf,#e86a92);display:grid;place-items:center;font-size:21px;box-shadow:0 6px 14px rgba(232,106,146,.4);flex-shrink:0}
 .player-info{flex:1;min-width:0}
@@ -478,11 +506,9 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 .player-btn-main.playing .ico-play{display:none}
 .player-btn-main.playing .ico-pause{display:block}
 
-/* ============ FLASH ============ */
 .flash{position:fixed;inset:0;z-index:96;pointer-events:none;background:#fff;opacity:0;animation:flashAnim .9s ease-out forwards}
 @keyframes flashAnim{0%{opacity:0}12%{opacity:.92}100%{opacity:0}}
 
-/* ============ DESKTOP ============ */
 @media (min-width:900px){
   .page{padding:110px 40px 80px}
   .stage{max-width:860px;min-height:calc(100vh - 190px)}
@@ -491,18 +517,13 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
   .home-title{font-size:76px}
   .home-name{font-size:112px}
   .home-sub{max-width:480px;font-size:16px}
-  .menu-grid{
-    grid-template-columns:repeat(5, 1fr);
-    gap:18px;
-    margin-top:52px;
-  }
+  .menu-grid{grid-template-columns:repeat(5, 1fr);gap:18px;margin-top:52px}
   .menu-card{padding:32px 14px 28px;border-radius:26px}
   .menu-card:nth-child(5){grid-column:auto;width:auto;justify-self:auto}
   .menu-emoji{font-size:38px}
   .menu-label{font-size:16px}
   .menu-desc{font-size:12.5px}
   .home-foot{font-size:12px}
-
   .gift-area{min-height:420px}
   .giftbox{width:220px;height:206px}
   .box-body{height:144px}
@@ -523,11 +544,8 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
   .strip-large{--photo-size:min(180px, calc((80vh - 110px) / 4))}
   .cinema-player{padding:28px 60px 34px;max-width:920px;left:50%;transform:translateX(-50%)}
   .cinema-topbar{padding:26px 40px}
-  .cinema-label{margin-left:100px}
   .cinema-lyric{font-size:clamp(28px,3.5vw,52px)}
 }
-
-/* Extra small phones */
 @media (max-width:380px){
   .home-sub{font-size:14.5px}
   .menu-label{font-size:14.5px}
@@ -543,57 +561,52 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
 
 <canvas id="fx"></canvas>
 
-<button id="musicToggle" aria-label="Putar / hentikan musik. Seret untuk memindahkan.">
+<button id="musicToggle" aria-label="Play or pause music. Drag to move.">
   <span class="note">♪</span>
   <span class="eq"><i></i><i></i><i></i></span>
 </button>
 
-<button id="fsToggle" aria-label="Aktifkan layar penuh">
+<button id="fsToggle" aria-label="Enter fullscreen">
   <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
 </button>
 
-<!-- ============ LOCK ============ -->
 <div class="screen" id="lockScreen">
   <div class="glass-card">
     <span class="glass-icon">🔒</span>
-    <p class="glass-eyebrow">private • Just For You 🤍</p>
-    <h2 class="glass-title">Every day,<br>I always call you?</h2>
+    <p class="glass-eyebrow">private • just for you</p>
+    <h2 class="glass-title">Before you enter,<br>tell me your name</h2>
     <form class="lock-form" id="lockForm" autocomplete="off">
-      <input class="lock-input" id="lockInput" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Input Here..." aria-label="Nama panggilan">
-      <button class="btn-primary" type="submit">Open</button>
+      <input class="lock-input" id="lockInput" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type here..." aria-label="Nickname">
+      <button class="btn-primary" type="submit">Enter 🤍</button>
     </form>
     <p class="lock-err" id="lockErr"></p>
-    <p class="screen-foot">made with ♡ aprilhxn<span>Turn on the sound for the best experience</span></p>
+    <p class="screen-foot">made with ♡<span>turn on your sound for the best experience</span></p>
   </div>
 </div>
 
-<!-- ============ HOME ============ -->
 <section class="page active" id="page-home">
   <div class="hearts" id="heartsLayer"></div>
   <div class="home-inner">
-    <p class="eyebrow">✦ A Little Surprise ✦</p>
+    <p class="eyebrow">✦ A little surprise ✦</p>
     <h1 class="home-title">Happy <em>Birthday</em></h1>
-    <p class="home-name" id="homeName">Ripa Aryani</p>
-    <p class="home-sub">To the sweetest, kindest, and cutest woman I know. Today is all about you. 🤍</p>
-
+    <p class="home-name" id="homeName">Sayang</p>
+    <p class="home-sub">For the softest, sweetest, and funniest girl I know. Today is all about you. 🤍</p>
     <div class="menu-grid">
-      <button class="menu-card" data-go="candle"><span class="menu-emoji">🕯️</span><span class="menu-label">Blow Out The Candles</span><span class="menu-desc">Make A Wish</span></button>
-      <button class="menu-card" data-go="gift"><span class="menu-emoji">🎁</span><span class="menu-label">Open The Gift</span><span class="menu-desc">There's Something Inside</span></button>
-      <button class="menu-card" data-go="memory"><span class="menu-emoji">📸</span><span class="menu-label">Memory</span><span class="menu-desc">Our Photobooth</span></button>
-      <button class="menu-card" data-go="letter"><span class="menu-emoji">💌</span><span class="menu-label">Letter Of Love</span><span class="menu-desc">Tear Open The Envelope</span></button>
-      <button class="menu-card" data-go="closing"><span class="menu-emoji">🎵</span><span class="menu-label">Closing</span><span class="menu-desc">Let's Sing Together</span></button>
+      <button class="menu-card" data-go="candle"><span class="menu-emoji">🕯️</span><span class="menu-label">Blow Candles</span><span class="menu-desc">make a wish</span></button>
+      <button class="menu-card" data-go="gift"><span class="menu-emoji">🎁</span><span class="menu-label">Open Gift</span><span class="menu-desc">something's inside</span></button>
+      <button class="menu-card" data-go="memory"><span class="menu-emoji">📸</span><span class="menu-label">Memory</span><span class="menu-desc">our photobooth</span></button>
+      <button class="menu-card" data-go="letter"><span class="menu-emoji">💌</span><span class="menu-label">Letter</span><span class="menu-desc">tear the envelope</span></button>
+      <button class="menu-card" data-go="closing"><span class="menu-emoji">🌦️</span><span class="menu-label">Finale</span><span class="menu-desc">song & seasons</span></button>
     </div>
-
-    <p class="home-foot">made with ♡ aprilhxn</p>
+    <p class="home-foot">made with ♡</p>
   </div>
 </section>
 
-<!-- ============ CANDLE ============ -->
 <section class="page" id="page-candle">
-  <button class="back-btn" data-back>←  BACK</button>
+  <button class="back-btn" data-back>← Back</button>
   <div class="stage">
-    <h2 class="page-title">Make A Wish</h2>
-    <p class="hint">Blow Into The Microphone, Or Hold Down The Button Below. Close Your Eyes And Say Your Wish. 💫</p>
+    <h2 class="page-title">Make a Wish</h2>
+    <p class="hint">Blow into the microphone, or hold the button below. Close your eyes and make your wish. 💫</p>
     <div class="cake-wrap">
       <div class="cake">
         <div class="candles" id="candles">
@@ -610,28 +623,27 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
       </div>
     </div>
     <div class="candle-controls">
-      <button class="blow-btn" id="blowBtn"><i class="fill"></i><span>Hold On Off Blowing</span></button>
-      <button class="mic-btn" id="micBtn"><span class="mic-dot"></span><span id="micLabel">Turn On Microphone</span></button>
+      <button class="blow-btn" id="blowBtn"><i class="fill"></i><span>Hold to Blow</span></button>
+      <button class="mic-btn" id="micBtn"><span class="mic-dot"></span><span id="micLabel">Enable Microphone</span></button>
     </div>
     <div class="mic-meter" id="micMeter"><i></i></div>
-    <p class="mic-hint" id="micHint">Optional Microphone - Buttons Still Work.</p>
+    <p class="mic-hint" id="micHint">Microphone is optional — the button always works.</p>
   </div>
   <div class="finale" id="finale">
     <div>
-      <p class="finale-eyebrow">✦ Your Wishes Has Been Sent ✦</p>
-      <h2>Happy BirthDay,<br>Love</h2>
-      <p class="finale-sub">May Everything You Pray For Today Find Its Way Back To You.</p>
-      <button class="btn-ghost" id="againBtn">Blowing Again</button>
+      <p class="finale-eyebrow">✦ your wish has been sent ✦</p>
+      <h2>Happy Birthday,<br>Sayang</h2>
+      <p class="finale-sub">May everything you wished for today find its way home to you.</p>
+      <button class="btn-ghost" id="againBtn">Blow Again</button>
     </div>
   </div>
 </section>
 
-<!-- ============ GIFT ============ -->
 <section class="page" id="page-gift">
-  <button class="back-btn" data-back>←  BACK</button>
+  <button class="back-btn" data-back>← Back</button>
   <div class="stage">
-    <h2 class="section-title">There's A Gift For You</h2>
-    <p class="hint" style="color:var(--ink-soft);opacity:.75">Tap The Box To Open It 🎀</p>
+    <h2 class="section-title">A Gift For You</h2>
+    <p class="hint" style="color:var(--ink-soft);opacity:.75">Tap the box to open 🎀</p>
     <div class="gift-area">
       <div class="giftbox" id="giftbox">
         <div class="bow">🎀</div>
@@ -643,30 +655,27 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
         <div class="bucket"></div>
       </div>
     </div>
-    <p class="gift-caption" id="giftCaption">A Bucket Red Rose For You 🌹</p>
+    <p class="gift-caption" id="giftCaption">a bucket of red roses, for you 🌹</p>
   </div>
 </section>
 
-<!-- ============ MEMORY ============ -->
 <section class="page" id="page-memory">
-  <button class="back-btn" data-back>←  BACK</button>
+  <button class="back-btn" data-back>← Back</button>
   <div class="stage wide" style="justify-content:flex-start;padding-top:6px">
     <h2 class="section-title">Our Little Moments</h2>
-    <p class="section-sub">Photobooth &amp; Memories</p>
-    <p class="strip-hint">Tap One Of The Strips To Open It✨</p>
+    <p class="section-sub">photobooth &amp; memories</p>
+    <p class="strip-hint">Tap a strip to open it ✨</p>
     <div class="strip-gallery" id="stripGallery"></div>
   </div>
 </section>
 
-<!-- ============ STRIP STAGE ============ -->
 <div class="strip-stage" id="stripStage">
-  <button class="strip-close" id="stripClose" aria-label="Tutup">✕</button>
+  <button class="strip-close" id="stripClose" aria-label="Close">✕</button>
   <div class="strip-large" id="stripLarge"></div>
 </div>
 
-<!-- ============ LETTER ============ -->
 <section class="page" id="page-letter">
-  <button class="back-btn" data-back>←  BACK</button>
+  <button class="back-btn" data-back>← Back</button>
   <div class="stage" style="justify-content:flex-start;padding-top:6px">
     <h2 class="section-title" style="margin-bottom:4px">A Letter</h2>
     <div class="env-wrap" id="envWrap">
@@ -680,63 +689,57 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
         </svg>
       </div>
     </div>
-    <p class="letter-hint" id="letterHint">Drag The Cursor Across The Envelope To Tear It Open ✂️</p>
+    <p class="letter-hint" id="letterHint">Drag across the envelope to tear it ✂️</p>
     <div class="letter-paper" id="letterPaper">
-      <p class="letter-date">For You, Today &amp; Always</p>
-      <h3 class="letter-hello">Hello, My Dear 🤍</h3>
+      <p class="letter-date">For you, today &amp; always</p>
+      <h3 class="letter-hello">Hi, my love 🤍</h3>
       <div class="letter-body">
-        <p>Happy birthday. Today the world celebrates the birthday of the person who warms my heart the most, has the kindest heart, and is the funniest when they laugh.</p>
-        <p>Thank you for being here, for sticking with it, and for being you — just as you are. I love the way you tell stories, the way you care, and even the way you sulk — it’s so adorable.</p>
-        <p>May this year be filled with good things: a peaceful heart, dreams that gradually come true, and people who truly care for you.</p>
+        <p>Happy birthday. Today the world celebrates the birth of the person who makes my days warmest, whose heart is the softest, and who is the funniest when she laughs.</p>
+        <p>Thank you for being here, for staying, for being you — just as you are. I love the way you tell stories, the way you care, even your adorable little pouts.</p>
+        <p>May this year surround you with good things: a peaceful heart, dreams that slowly come true, and people who love you the right way.</p>
       </div>
       <div class="affirm">
-        <p class="affirm-title">Just a little reminder for you</p>
+        <p class="affirm-title">A little reminder for you</p>
         <ul>
-          <li>You’re enough — even on the days when you don’t feel it.</li>
-          <li>You don’t have to be perfect to be worthy of love.</li>
+          <li>You are enough — even on the days you don't feel it.</li>
+          <li>You don't have to be perfect to deserve love.</li>
           <li>Your gentleness is a strength, not a weakness.</li>
-          <li>You’re allowed to rest. You’re allowed to take it slowly.</li>
-          <li>And you’ll always have a place to come home to here.</li>
+          <li>It's okay to rest. It's okay to take it slow.</li>
+          <li>And you will always have a place to come home to here.</li>
         </ul>
       </div>
-      <p class="letter-sign">With Love,<br><span>I am your man</span></p>
+      <p class="letter-sign">With all my love,<br><span>Me</span></p>
     </div>
   </div>
 </section>
 
-<!-- ============ CLOSING / CINEMA ============ -->
 <section class="page" id="page-closing">
-  <button class="back-btn" data-back>←  BACK</button>
+  <button class="back-btn" data-back>← Back</button>
   <div class="cinema">
-    <div class="cinema-photos">
-      <div class="cinema-photo-wrap" id="photoWrapA">
-        <img class="cinema-photo" id="cinemaPhotoA" alt="">
-      </div>
-      <div class="cinema-photo-wrap" id="photoWrapB">
-        <img class="cinema-photo" id="cinemaPhotoB" alt="">
-      </div>
-    </div>
-    <canvas id="cinemaParticles"></canvas>
+    <canvas id="cinemaSky"></canvas>
+    <canvas id="cinemaWeather"></canvas>
+    <div class="cinema-transition" id="cinemaTransition"></div>
+    <canvas id="cinemaFireworks"></canvas>
+    <div class="cinema-overlay"></div>
     <div class="cinema-vignette"></div>
     <div class="cinema-grain"></div>
 
     <div class="cinema-opening" id="cinemaOpening">
-      <p>sebuah kenangan</p>
+      <p>a memory</p>
     </div>
 
     <div class="cinema-ending" id="cinemaEnding">
       <div class="cinema-ending-inner">
-        <p class="cinema-ending-small">Always For You</p>
-        <h2 class="cinema-ending-title">Happy Birthday,<br><span id="endingName">Ripa Aryani</span></h2>
+        <p class="cinema-ending-small">for you, always</p>
+        <h2 class="cinema-ending-title">Happy Birthday,<br><span id="endingName">Sayang</span></h2>
       </div>
     </div>
 
     <div class="cinema-topbar">
-      <span class="cinema-label">A Memories</span>
-      <span class="cinema-counter" id="cinemaCounter">01 / 16</span>
+      <span class="cinema-label" id="seasonLabel">a memory</span>
     </div>
 
-    <div class="cinema-lyric-wrap">
+    <div class="cinema-lyric-wrap" id="lyricWrap">
       <p class="cinema-lyric" id="cinemaLyric"></p>
     </div>
 
@@ -755,17 +758,17 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
         <div class="player-progress-fill" id="playerProgressFill"></div>
       </div>
       <div class="player-controls">
-        <button class="player-btn" id="playerPrev" aria-label="Sebelumnya">
+        <button class="player-btn" id="playerPrev" aria-label="Rewind 10 seconds">
           <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
         </button>
-        <button class="player-btn player-btn-main" id="playerPlay" aria-label="Putar">
+        <button class="player-btn player-btn-main" id="playerPlay" aria-label="Play">
           <svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
         </button>
         <button class="player-btn" id="playerStop" aria-label="Stop">
           <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
         </button>
-        <button class="player-btn" id="playerNext" aria-label="Berikutnya">
+        <button class="player-btn" id="playerNext" aria-label="Forward 10 seconds">
           <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg>
         </button>
       </div>
@@ -773,12 +776,11 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
   </div>
 </section>
 
-<!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose" aria-label="Tutup">✕</button>
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Sebelumnya">‹</button>
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
   <img id="lightboxImg" src="" alt="">
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Berikutnya">›</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
   <p id="lightboxCap"></p>
   <p class="lb-counter" id="lbCounter"></p>
 </div>
@@ -788,7 +790,7 @@ body.on-closing #musicToggle{opacity:0;pointer-events:none}
    CONFIG
    ========================================================= */
 const CONFIG = {
-  name: "Ripa Aryani",
+  name: "Sayang",
   unlockNames: ["sayang", "sayangku"],
   totalPhotos: 16,
   photoDir: "photos/",
@@ -798,7 +800,8 @@ const CONFIG = {
   audioFallback: "",
   closingAudioSrc: "music/closing.mp3",
   closingLyricsSrc: "music/closing-lyrics.json",
-  closingLyricsLrc: "music/closing-lyrics.lrc"
+  closingLyricsLrc: "music/closing-lyrics.lrc",
+  expectedDuration: 238
 };
 
 const STRIPS = [
@@ -808,13 +811,12 @@ const STRIPS = [
   { name: "Moon",   emoji: "🌙", accent: "#a486c4", tint: "rgba(164,134,196,0.38)", particles: ["🌙","⭐","🪐","✨","💫","💜"] }
 ];
 
-/* =========================================================
-   UTIL
-   ========================================================= */
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const rnd = (a, b) => a + Math.random() * (b - a);
 const pick = a => a[(Math.random() * a.length) | 0];
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
 const PHOTOS = Array.from({ length: CONFIG.totalPhotos }, (_, i) => {
   const n = i + 1;
@@ -973,7 +975,7 @@ function loop(now){
 requestAnimationFrame(loop);
 
 /* =========================================================
-   MUSIC — tema
+   MUSIC
    ========================================================= */
 const Music = (() => {
   let audio = null;
@@ -990,12 +992,7 @@ const Music = (() => {
     audio.addEventListener("play", () => { if (toggleBtn) toggleBtn.classList.add("on"); });
     audio.addEventListener("pause", () => { if (toggleBtn) toggleBtn.classList.remove("on"); });
 
-    audio.addEventListener("loadedmetadata", () => {
-      console.log("[Music] File:", CONFIG.audioSrc, "| Durasi:", audio.duration.toFixed(1), "detik");
-    });
     audio.addEventListener("error", () => {
-      const err = audio.error;
-      console.error("[Music] Gagal memuat:", CONFIG.audioSrc, "| Code:", err && err.code);
       if (!hasFallenBack && CONFIG.audioFallback && audio.src.indexOf(CONFIG.audioFallback) === -1){
         hasFallenBack = true;
         audio.src = CONFIG.audioFallback;
@@ -1007,7 +1004,7 @@ const Music = (() => {
 
   return {
     get audio(){ return ensure(); },
-    play(){ const a = ensure(); const p = a.play(); if (p && p.catch) p.catch(err => console.warn("[Music]", err)); return true; },
+    play(){ const a = ensure(); const p = a.play(); if (p && p.catch) p.catch(()=>{}); return true; },
     pause(){ if (audio) audio.pause(); return false; },
     stop(){ if (audio) { audio.pause(); try { audio.currentTime = 0; } catch(e){} } return false; },
     toggle(){ const a = ensure(); if (a.paused) return this.play(); return this.pause(); },
@@ -1019,9 +1016,6 @@ const Music = (() => {
 const musicBtn = $("#musicToggle");
 Music.attachToggle(musicBtn);
 
-/* =========================================================
-   MUSIC TOGGLE — draggable
-   ========================================================= */
 (function musicDrag(){
   let drag = null;
   let moved = false;
@@ -1052,12 +1046,7 @@ Music.attachToggle(musicBtn);
     if (document.body.classList.contains("on-closing")) return;
 
     const rect = musicBtn.getBoundingClientRect();
-    drag = {
-      startX: e.clientX,
-      startY: e.clientY,
-      origLeft: rect.left,
-      origTop: rect.top
-    };
+    drag = { startX: e.clientX, startY: e.clientY, origLeft: rect.left, origTop: rect.top };
     moved = false;
     try { musicBtn.setPointerCapture(e.pointerId); } catch(_) {}
   });
@@ -1074,18 +1063,15 @@ Music.attachToggle(musicBtn);
     clampAndApply(drag.origLeft + dx, drag.origTop + dy);
   });
 
-  function endDrag(e){
+  function endDrag(){
     if (!drag) return;
     const wasMoved = moved;
-    drag = null;
-    moved = false;
+    drag = null; moved = false;
     musicBtn.classList.remove("dragging");
 
     if (wasMoved){
       const rect = musicBtn.getBoundingClientRect();
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ x: rect.left, y: rect.top }));
-      } catch(_) {}
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ x: rect.left, y: rect.top })); } catch(_) {}
     } else {
       const on = Music.toggle();
       musicBtn.classList.toggle("on", on);
@@ -1093,19 +1079,7 @@ Music.attachToggle(musicBtn);
   }
 
   musicBtn.addEventListener("pointerup", endDrag);
-  musicBtn.addEventListener("pointercancel", () => {
-    drag = null;
-    moved = false;
-    musicBtn.classList.remove("dragging");
-  });
-
-  musicBtn.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      const on = Music.toggle();
-      musicBtn.classList.toggle("on", on);
-    }
-  });
+  musicBtn.addEventListener("pointercancel", () => { drag = null; moved = false; musicBtn.classList.remove("dragging"); });
 
   window.addEventListener("resize", () => {
     if (!localStorage.getItem(STORAGE_KEY)) return;
@@ -1117,11 +1091,7 @@ Music.attachToggle(musicBtn);
     } catch(_) {}
   });
 
-  document.addEventListener("pagechange", () => {
-    drag = null;
-    moved = false;
-    musicBtn.classList.remove("dragging");
-  });
+  document.addEventListener("pagechange", () => { drag = null; moved = false; musicBtn.classList.remove("dragging"); });
 })();
 
 /* =========================================================
@@ -1129,25 +1099,10 @@ Music.attachToggle(musicBtn);
    ========================================================= */
 function tryFullscreen(){
   const el = document.documentElement;
-
-  if (el.requestFullscreen) {
-    const p = el.requestFullscreen({ navigationUI: "hide" });
-    if (p && p.catch) p.catch(err => console.warn("[Fullscreen] Gagal:", err));
-    return;
-  }
-  if (el.webkitRequestFullscreen) {
-    try { el.webkitRequestFullscreen(); } catch(e){}
-    return;
-  }
-  if (el.mozRequestFullScreen) {
-    try { el.mozRequestFullScreen(); } catch(e){}
-    return;
-  }
-  if (el.msRequestFullscreen) {
-    try { el.msRequestFullscreen(); } catch(e){}
-    return;
-  }
-  console.warn("[Fullscreen] Tidak didukung browser ini");
+  if (el.requestFullscreen) { const p = el.requestFullscreen({ navigationUI: "hide" }); if (p && p.catch) p.catch(()=>{}); return; }
+  if (el.webkitRequestFullscreen) { try { el.webkitRequestFullscreen(); } catch(e){} return; }
+  if (el.mozRequestFullScreen) { try { el.mozRequestFullScreen(); } catch(e){} return; }
+  if (el.msRequestFullscreen) { try { el.msRequestFullscreen(); } catch(e){} return; }
 }
 
 (function fullscreenToggle(){
@@ -1165,22 +1120,15 @@ function tryFullscreen(){
     if (isFs){
       if (document.exitFullscreen) document.exitFullscreen();
       else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-      else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-      else if (document.msExitFullscreen) document.msExitFullscreen();
-    } else {
-      tryFullscreen();
-    }
+    } else { tryFullscreen(); }
   });
 
   document.addEventListener("fullscreenchange", updateVisibility);
   document.addEventListener("webkitfullscreenchange", updateVisibility);
-  document.addEventListener("mozfullscreenchange", updateVisibility);
-  document.addEventListener("MSFullscreenChange", updateVisibility);
   document.addEventListener("pagechange", updateVisibility);
 
   const observer = new MutationObserver(updateVisibility);
   observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-
   updateVisibility();
 })();
 
@@ -1195,8 +1143,7 @@ const ClosingMusic = (() => {
     if (audio) return audio;
     const sameTrack = !CONFIG.closingAudioSrc || CONFIG.closingAudioSrc === CONFIG.audioSrc;
     if (sameTrack){
-      audio = Music.audio;
-      shared = true;
+      audio = Music.audio; shared = true;
     } else {
       audio = new Audio();
       audio.preload = "auto";
@@ -1204,12 +1151,8 @@ const ClosingMusic = (() => {
       audio.loop = false;
       audio.addEventListener("error", () => {
         if (CONFIG.audioSrc && audio.src.indexOf(CONFIG.audioSrc) === -1){
-          audio.src = CONFIG.audioSrc;
-          audio.load();
+          audio.src = CONFIG.audioSrc; audio.load();
         }
-      });
-      audio.addEventListener("loadedmetadata", () => {
-        console.log("[ClosingMusic] Durasi:", audio.duration.toFixed(1), "detik");
       });
     }
     return audio;
@@ -1241,27 +1184,18 @@ const ClosingMusic = (() => {
     e.preventDefault();
     const val = norm(input.value);
     if (!val){ input.focus(); return; }
-
     if (valid.includes(val)){
       sessionStorage.setItem("bd_unlocked", "1");
-      unlockSite(true);   // ← dengan fullscreen
+      unlockSite(true);
       return;
     }
-
     attempts++;
-    input.classList.remove("shake");
-    void input.offsetWidth;
-    input.classList.add("shake");
+    input.classList.remove("shake"); void input.offsetWidth; input.classList.add("shake");
     err.classList.add("show");
-
-    if (attempts >= 3){
-      err.textContent = "Petunjuk: panggilannya “S****g” 🤍";
-    } else {
-      err.textContent = "Hmm, bukan itu. Coba lagi ya 🤍";
-    }
+    if (attempts >= 3){ err.textContent = "Hint: the nickname is “S****g” 🤍"; } 
+    else { err.textContent = "Hmm, not quite. Try again 🤍"; }
     input.select();
   });
-
   input.addEventListener("input", () => err.classList.remove("show"));
 })();
 
@@ -1269,12 +1203,9 @@ function unlockSite(withFullscreen){
   $("#lockScreen").classList.add("hidden");
   document.body.classList.remove("locked");
   try { Music.play(); } catch(e) {}
-  if (withFullscreen){
-    tryFullscreen();
-  }
+  if (withFullscreen) tryFullscreen();
 }
 
-/* Auto-unlock (refresh) — tanpa fullscreen karena bukan user gesture */
 if (sessionStorage.getItem("bd_unlocked") === "1"){
   unlockSite(false);
 }
@@ -1302,6 +1233,8 @@ function goTo(id){
 
   if (prevId === "closing" && id !== "closing"){
     document.body.classList.remove("on-closing");
+    document.body.classList.remove("on-finale");
+    document.body.removeAttribute("data-season");
     if (!shared){
       ClosingMusic.pause();
       if (themeWasPlaying) Music.play();
@@ -1365,47 +1298,29 @@ $("#homeName").textContent = CONFIG.name;
 
   async function enableMic(){
     if (micActive) return;
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-      micHint.textContent = "Browser ini belum mendukung mikrofon. Pakai tombol tahan saja ya 🤍";
-      micBtn.classList.add("err"); return;
-    }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){ micHint.textContent = "Browser ini belum mendukung mikrofon."; micBtn.classList.add("err"); return; }
     micLabel.textContent = "Meminta izin...";
     try{
-      stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: false, autoGainControl: false } });
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       if (audioCtx.state === "suspended") await audioCtx.resume();
       const src = audioCtx.createMediaStreamSource(stream);
-      analyser = audioCtx.createAnalyser();
-      analyser.fftSize = 1024;
-      dataArr = new Uint8Array(analyser.fftSize);
-      src.connect(analyser);
-      micActive = true;
-      micBtn.classList.add("on");
-      micLabel.textContent = "Mikrofon Aktif";
-      micMeter.classList.add("show");
-      micHint.textContent = "Tiup pelan ke arah mikrofon — atau tetap tahan tombolnya.";
+      analyser = audioCtx.createAnalyser(); analyser.fftSize = 1024;
+      dataArr = new Uint8Array(analyser.fftSize); src.connect(analyser);
+      micActive = true; micBtn.classList.add("on"); micLabel.textContent = "Mikrofon Aktif";
+      micMeter.classList.add("show"); micHint.textContent = "Tiup pelan ke arah mikrofon.";
       micLoop();
-    } catch(err){
-      micBtn.classList.add("err");
-      micLabel.textContent = "Mikrofon tidak tersedia";
-      micHint.textContent = "Izin mikrofon ditolak. Tenang, kamu tetap bisa meniup pakai tombol. 🤍";
-    }
+    } catch(err){ micBtn.classList.add("err"); micLabel.textContent = "Mikrofon gagal"; micHint.textContent = "Izin ditolak. Gunakan tombol saja ya."; }
   }
 
   function micLoop(){
     if (!micActive) return;
     analyser.getByteTimeDomainData(dataArr);
     let sum = 0;
-    for (let i = 0; i < dataArr.length; i++){
-      const v = (dataArr[i] - 128) / 128;
-      sum += v * v;
-    }
+    for (let i = 0; i < dataArr.length; i++){ const v = (dataArr[i] - 128) / 128; sum += v * v; }
     const rms = Math.sqrt(sum / dataArr.length);
-    const pct = Math.min(1, rms / 0.25);
-    micBar.style.width = (pct * 100) + "%";
-    const hot = rms > MIC_THRESHOLD;
-    micBar.classList.toggle("hot", hot);
-    micBlow = hot;
+    const pct = Math.min(1, rms / 0.25); micBar.style.width = (pct * 100) + "%";
+    const hot = rms > MIC_THRESHOLD; micBar.classList.toggle("hot", hot); micBlow = hot;
     micRAF = requestAnimationFrame(micLoop);
   }
 
@@ -1415,10 +1330,7 @@ $("#homeName").textContent = CONFIG.name;
     if (stream) stream.getTracks().forEach(t => t.stop());
     if (audioCtx && audioCtx.state !== "closed") audioCtx.close();
     stream = null; audioCtx = null; analyser = null;
-    micBtn.classList.remove("on");
-    micMeter.classList.remove("show");
-    micBar.style.width = "0%";
-    micLabel.textContent = "Aktifkan Mikrofon";
+    micBtn.classList.remove("on"); micMeter.classList.remove("show"); micBar.style.width = "0%"; micLabel.textContent = "Aktifkan Mikrofon";
   }
 
   micBtn.addEventListener("click", () => { if (micActive) stopMic(); else enableMic(); });
@@ -1437,8 +1349,7 @@ $("#homeName").textContent = CONFIG.name;
       });
       if (progress >= 1) extinguish();
     } else if (!done && progress > 0){
-      progress = Math.max(0, progress - 0.0045);
-      fillEl.style.width = (progress * 100) + "%";
+      progress = Math.max(0, progress - 0.0045); fillEl.style.width = (progress * 100) + "%";
       candles.forEach(c => {
         const f = c.querySelector(".flame");
         if (f){ f.style.filter = ""; f.style.opacity = ""; }
@@ -1450,28 +1361,22 @@ $("#homeName").textContent = CONFIG.name;
 
   function extinguish(){
     done = true; holding = false; micBlow = false;
-    fillEl.style.width = "100%";
-    stopMic();
+    fillEl.style.width = "100%"; stopMic();
     candles.forEach((c, i) => {
       setTimeout(() => {
         c.classList.add("out");
-        const s = document.createElement("div");
-        s.className = "smoke";
-        c.appendChild(s);
-        setTimeout(() => s.remove(), 2100);
+        const s = document.createElement("div"); s.className = "smoke";
+        c.appendChild(s); setTimeout(() => s.remove(), 2100);
       }, i * 170);
     });
     setTimeout(runFinale, 950 + candles.length * 170);
   }
 
   function runFinale(){
-    screenFlash();
-    finale.classList.add("show");
-    confettiBurst(170);
+    screenFlash(); finale.classList.add("show"); confettiBurst(170);
     setTimeout(() => confettiBurst(140, W * 0.5, H * 0.15), 500);
     petalsRain(5200);
-    let n = 0;
-    const iv = setInterval(() => {
+    let n = 0; const iv = setInterval(() => {
       firework(rnd(W*0.14, W*0.86), rnd(H*0.12, H*0.55));
       if (++n > 16) clearInterval(iv);
     }, 270);
@@ -1484,14 +1389,11 @@ $("#homeName").textContent = CONFIG.name;
       const f = c.querySelector(".flame");
       if (f){ f.style.filter = ""; f.style.opacity = ""; f.style.transform = ""; }
     });
-    progress = 0; done = false; holding = false; micBlow = false;
-    fillEl.style.width = "0%";
+    progress = 0; done = false; holding = false; micBlow = false; fillEl.style.width = "0%";
   }
 
   againBtn.addEventListener("click", resetCandle);
-  document.addEventListener("pagechange", e => {
-    if (e.detail.id !== "candle"){ stopMic(); if (done) resetCandle(); }
-  });
+  document.addEventListener("pagechange", e => { if (e.detail.id !== "candle"){ stopMic(); if (done) resetCandle(); } });
 })();
 
 /* =========================================================
@@ -1525,19 +1427,14 @@ $("#homeName").textContent = CONFIG.name;
   });
 
   giftbox.addEventListener("click", () => {
-    if (opened) return;
-    opened = true;
-    giftbox.classList.add("open");
+    if (opened) return; opened = true; giftbox.classList.add("open");
     setTimeout(() => {
-      giftbox.style.opacity = "0";
-      giftbox.style.pointerEvents = "none";
-      bouquet.classList.add("show");
-      caption.classList.add("show");
-      petalsRain(7000);
+      giftbox.style.opacity = "0"; giftbox.style.pointerEvents = "none";
+      bouquet.classList.add("show"); caption.classList.add("show"); petalsRain(7000);
       confettiBurst(90, W * 0.5, H * 0.42);
       setTimeout(() => firework(W * 0.5, H * 0.36), 350);
       setTimeout(() => firework(W * 0.35, H * 0.28), 900);
-      setTimeout(() => firework(W * 0.66, H * 0.30), 1400);
+      setTimeout(() => firework(W * 0.66, H * 0.3), 1400);
     }, 620);
   });
 })();
@@ -1558,21 +1455,17 @@ $("#homeName").textContent = CONFIG.name;
 
   function openLightbox(i){
     if (i < 0 || i >= PHOTOS.length) return;
-    lbIndex = i;
-    renderLightbox();
-    lightbox.classList.add("show");
+    lbIndex = i; renderLightbox(); lightbox.classList.add("show");
   }
   function renderLightbox(){
     const ph = PHOTOS[lbIndex];
     lbImg.src = ph.src; lbImg.alt = ph.cap || ("memory " + (lbIndex + 1));
     lbCap.textContent = ph.cap || "";
-    lbCounter.textContent = (lbIndex + 1) + " / " + PHOTOS.length;
-    attachFallback(lbImg);
+    lbCounter.textContent = (lbIndex + 1) + " / " + PHOTOS.length; attachFallback(lbImg);
   }
   function nav(dir){
     if (lbIndex < 0) return;
-    lbIndex = (lbIndex + dir + PHOTOS.length) % PHOTOS.length;
-    renderLightbox();
+    lbIndex = (lbIndex + dir + PHOTOS.length) % PHOTOS.length; renderLightbox();
   }
   function closeLightbox(){ lightbox.classList.remove("show"); lbIndex = -1; }
   $("#lbClose").addEventListener("click", closeLightbox);
@@ -1584,8 +1477,7 @@ $("#homeName").textContent = CONFIG.name;
     if (lightbox.classList.contains("show")){
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowLeft") nav(-1);
-      if (e.key === "ArrowRight") nav(1);
-      return;
+      if (e.key === "ArrowRight") nav(1); return;
     }
     if (stripStage.classList.contains("show") && e.key === "Escape") closeStrip();
   });
@@ -1595,132 +1487,69 @@ $("#homeName").textContent = CONFIG.name;
     STRIPS.forEach((strip, i) => {
       const photos = PHOTOS.slice(i * 4, (i + 1) * 4);
       if (photos.length === 0) return;
-      const card = document.createElement("div");
-      card.className = "strip-card";
-      card.style.setProperty("--accent", strip.accent);
-      const sticker = document.createElement("span");
-      sticker.className = "strip-sticker"; sticker.textContent = strip.emoji;
-      card.appendChild(sticker);
+      const card = document.createElement("div"); card.className = "strip-card"; card.style.setProperty("--accent", strip.accent);
+      const sticker = document.createElement("span"); sticker.className = "strip-sticker"; sticker.textContent = strip.emoji; card.appendChild(sticker);
       const wrap = document.createElement("div"); wrap.className = "strip-photos";
       photos.forEach(ph => {
-        const img = document.createElement("img");
-        img.className = "strip-photo"; img.src = ph.src; img.alt = "memory";
-        img.loading = "lazy"; attachFallback(img);
-        wrap.appendChild(img);
+        const img = document.createElement("img"); img.className = "strip-photo"; img.src = ph.src; img.alt = "memory"; img.loading = "lazy"; attachFallback(img); wrap.appendChild(img);
       });
       card.appendChild(wrap);
-      const label = document.createElement("p");
-      label.className = "strip-label"; label.textContent = strip.name;
-      card.appendChild(label);
-      card.addEventListener("click", () => openStrip(i));
-      stripGallery.appendChild(card);
+      const label = document.createElement("p"); label.className = "strip-label"; label.textContent = strip.name; card.appendChild(label);
+      card.addEventListener("click", () => openStrip(i)); stripGallery.appendChild(card);
     });
   }
 
   let currentStrip = -1;
 
   function openStrip(index){
-    if (currentStrip === index) return;
-    currentStrip = index;
-    const strip = STRIPS[index];
-    const photos = PHOTOS.slice(index * 4, (index + 1) * 4);
-
-    stripLarge.style.setProperty("--accent", strip.accent);
-    stripLarge.style.setProperty("--tint", strip.tint);
-    stripLarge.innerHTML = "";
-
-    const sticker = document.createElement("span");
-    sticker.className = "strip-sticker"; sticker.textContent = strip.emoji;
-    stripLarge.appendChild(sticker);
-
+    if (currentStrip === index) return; currentStrip = index;
+    const strip = STRIPS[index]; const photos = PHOTOS.slice(index * 4, (index + 1) * 4);
+    stripLarge.style.setProperty("--accent", strip.accent); stripLarge.style.setProperty("--tint", strip.tint); stripLarge.innerHTML = "";
+    const sticker = document.createElement("span"); sticker.className = "strip-sticker"; sticker.textContent = strip.emoji; stripLarge.appendChild(sticker);
     const wrap = document.createElement("div"); wrap.className = "strip-photos";
     photos.forEach((ph, pi) => {
-      const img = document.createElement("img");
-      img.className = "strip-photo"; img.src = ph.src; img.alt = "memory";
-      attachFallback(img);
-      const globalIdx = index * 4 + pi;
-      img.addEventListener("click", e => { e.stopPropagation(); openLightbox(globalIdx); });
-      wrap.appendChild(img);
+      const img = document.createElement("img"); img.className = "strip-photo"; img.src = ph.src; img.alt = "memory"; attachFallback(img);
+      const globalIdx = index * 4 + pi; img.addEventListener("click", e => { e.stopPropagation(); openLightbox(globalIdx); }); wrap.appendChild(img);
     });
     stripLarge.appendChild(wrap);
-
-    const label = document.createElement("p");
-    label.className = "strip-label"; label.textContent = strip.name + " ♡";
-    stripLarge.appendChild(label);
-
-    addFloatStickers(strip);
-    stripStage.classList.add("show");
-    setTimeout(() => burstStickers(strip), 420);
+    const label = document.createElement("p"); label.className = "strip-label"; label.textContent = strip.name + " ♡"; stripLarge.appendChild(label);
+    addFloatStickers(strip); stripStage.classList.add("show"); setTimeout(() => burstStickers(strip), 420);
   }
 
   function addFloatStickers(strip){
-    const positions = [
-      { top: "-40px", left: "-58px" },
-      { top: "12%", right: "-68px" },
-      { top: "52%", left: "-72px" },
-      { top: "82%", right: "-58px" },
-      { bottom: "12%", left: "-58px" },
-      { bottom: "-34px", right: "12%" }
-    ];
+    const positions = [ { top: "-40px", left: "-58px" }, { top: "12%", right: "-68px" }, { top: "52%", left: "-72px" }, { top: "82%", right: "-58px" }, { bottom: "12%", left: "-58px" }, { bottom: "-34px", right: "12%" } ];
     positions.forEach((pos, i) => {
-      const el = document.createElement("span");
-      el.className = "float-sticker";
-      el.textContent = strip.particles[i % strip.particles.length];
-      Object.assign(el.style, pos);
-      el.style.animationDelay = (i * 0.4) + "s";
-      el.style.fontSize = (28 + Math.random() * 14) + "px";
-      stripLarge.appendChild(el);
+      const el = document.createElement("span"); el.className = "float-sticker"; el.textContent = strip.particles[i % strip.particles.length];
+      Object.assign(el.style, pos); el.style.animationDelay = (i * 0.4) + "s"; el.style.fontSize = (28 + Math.random() * 14) + "px"; stripLarge.appendChild(el);
     });
   }
 
   function burstStickers(strip){
-    const rect = stripLarge.getBoundingClientRect();
-    const cx0 = rect.left + rect.width / 2;
-    const cy0 = rect.top + rect.height / 2;
+    const rect = stripLarge.getBoundingClientRect(); const cx0 = rect.left + rect.width / 2; const cy0 = rect.top + rect.height / 2;
     for (let i = 0; i < 28; i++){
-      const el = document.createElement("span");
-      el.className = "burst-sticker";
-      el.textContent = strip.particles[i % strip.particles.length];
-      const angle = (i / 28) * Math.PI * 2 + rnd(-0.2, 0.2);
-      const dist = 200 + Math.random() * 220;
-      el.style.left = cx0 + "px";
-      el.style.top = cy0 + "px";
-      el.style.setProperty("--dx", Math.cos(angle) * dist + "px");
-      el.style.setProperty("--dy", Math.sin(angle) * dist + "px");
-      el.style.setProperty("--rot", (Math.random() * 720 - 360) + "deg");
-      el.style.animationDelay = (Math.random() * 0.35) + "s";
-      el.style.fontSize = (24 + Math.random() * 18) + "px";
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 3200);
+      const el = document.createElement("span"); el.className = "burst-sticker"; el.textContent = strip.particles[i % strip.particles.length];
+      const angle = (i / 28) * Math.PI * 2 + rnd(-0.2, 0.2); const dist = 200 + Math.random() * 220;
+      el.style.left = cx0 + "px"; el.style.top = cy0 + "px"; el.style.setProperty("--dx", Math.cos(angle) * dist + "px"); el.style.setProperty("--dy", Math.sin(angle) * dist + "px");
+      el.style.setProperty("--rot", (Math.random() * 720 - 360) + "deg"); el.style.animationDelay = (Math.random() * 0.35) + "s"; el.style.fontSize = (24 + Math.random() * 18) + "px";
+      document.body.appendChild(el); setTimeout(() => el.remove(), 3200);
     }
     for (let i = 0; i < 14; i++){
       setTimeout(() => {
-        const el = document.createElement("span");
-        el.className = "burst-sticker sparkle";
-        el.textContent = "✦";
-        el.style.left = cx0 + "px";
-        el.style.top = cy0 + "px";
-        el.style.setProperty("--dx", (Math.random() - 0.5) * 320 + "px");
-        el.style.setProperty("--dy", (Math.random() - 0.5) * 420 + "px");
-        el.style.setProperty("--rot", "0deg");
-        el.style.animationDelay = "0s";
-        el.style.fontSize = (14 + Math.random() * 12) + "px";
-        el.style.color = strip.accent;
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 2400);
+        const el = document.createElement("span"); el.className = "burst-sticker sparkle"; el.textContent = "✦";
+        el.style.left = cx0 + "px"; el.style.top = cy0 + "px"; el.style.setProperty("--dx", (Math.random() - 0.5) * 320 + "px"); el.style.setProperty("--dy", (Math.random() - 0.5) * 420 + "px");
+        el.style.setProperty("--rot", "0deg"); el.style.animationDelay = "0s"; el.style.fontSize = (14 + Math.random() * 12) + "px"; el.style.color = strip.accent;
+        document.body.appendChild(el); setTimeout(() => el.remove(), 2400);
       }, i * 90);
     }
   }
 
   function closeStrip(){
-    stripStage.classList.remove("show");
-    currentStrip = -1;
+    stripStage.classList.remove("show"); currentStrip = -1;
     setTimeout(() => { if (!stripStage.classList.contains("show")) stripLarge.innerHTML = ""; }, 500);
   }
 
   stripClose.addEventListener("click", closeStrip);
   stripStage.addEventListener("click", e => { if (e.target === stripStage) closeStrip(); });
-
   document.addEventListener("pagechange", e => {
     if (e.detail.id !== "memory" && stripStage.classList.contains("show")) closeStrip();
     if (e.detail.id !== "memory" && lightbox.classList.contains("show")) closeLightbox();
@@ -1742,731 +1571,744 @@ $("#homeName").textContent = CONFIG.name;
   function updateTear(clientX){
     const r = envWrap.getBoundingClientRect();
     let p = (clientX - r.left) / r.width;
-    p = Math.max(0.06, Math.min(1, p));
-    tearLine.style.left = (p * 100) + "%";
+    p = Math.max(0.06, Math.min(1, p)); tearLine.style.left = (p * 100) + "%";
   }
 
   envWrap.addEventListener("pointerdown", e => {
-    if (isTorn) return;
-    dragging = true;
+    if (isTorn) return; dragging = true;
     if (e.cancelable) e.preventDefault();
     try { envWrap.setPointerCapture(e.pointerId); } catch(_) {}
-    tearLine.style.transition = "none";
-    tearLine.classList.add("on");
-    updateTear(e.clientX);
+    tearLine.style.transition = "none"; tearLine.classList.add("on"); updateTear(e.clientX);
   });
 
   envWrap.addEventListener("pointermove", e => { if (!dragging || isTorn) return; updateTear(e.clientX); });
 
   function finishDrag(){
-    if (!dragging || isTorn) return;
-    dragging = false;
-    completeTear();
+    if (!dragging || isTorn) return; dragging = false; completeTear();
   }
   envWrap.addEventListener("pointerup", finishDrag);
   envWrap.addEventListener("pointercancel", finishDrag);
   window.addEventListener("pointerup", () => { if (dragging) finishDrag(); });
 
   function completeTear(){
-    isTorn = true;
-    tearLine.style.transition = "left .32s ease";
-    tearLine.style.left = "100%";
-    hint.classList.add("hide");
+    isTorn = true; tearLine.style.transition = "left .32s ease"; tearLine.style.left = "100%"; hint.classList.add("hide");
     setTimeout(() => {
-      envWrap.classList.add("torn");
-      confettiBurst(80, W * 0.5, H * 0.42);
-      petalsRain(4200);
-      setTimeout(() => {
-        paper.classList.add("show");
-        setTimeout(() => paper.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
-      }, 420);
+      envWrap.classList.add("torn"); confettiBurst(80, W * 0.5, H * 0.42); petalsRain(4200);
+      setTimeout(() => { paper.classList.add("show"); setTimeout(() => paper.scrollIntoView({ behavior: "smooth", block: "start" }), 120); }, 420);
       setTimeout(() => tearLine.classList.remove("on"), 900);
     }, 330);
   }
 })();
 
 /* =========================================================
-   CINEMA
+   SKY
    ========================================================= */
-const Cinema = (() => {
-  const SCENE_MAP = [
-    { start: 0,      end: 7,      photos: [0] },
-    { start: 7,      end: 25.59,  photos: [1, 2] },
-    { start: 25.59,  end: 49.99,  photos: [3] },
-    { start: 49.99,  end: 74.51,  photos: [4] },
-    { start: 74.51,  end: 98.21,  photos: [5] },
-    { start: 98.21,  end: 124.08, photos: [6] },
-    { start: 124.08, end: 154.54, photos: [7] },
-    { start: 154.54, end: 178.23, photos: [8] },
-    { start: 178.23, end: 199.66, photos: [9] },
-    { start: 199.66, end: 239,    photos: [10, 11, 12, 13, 14, 15] }
-  ];
-  const EXPECTED_DURATION = 239;
-  const ENDING_TIME = 219.66;
-
-  const LINE_OVERRIDES = { 28: "gold" };
-
-  const MOOD_KEYWORDS = {
-    hearts:  ["hati", "cinta", "sayang", "rindu", "kasih", "peluk", "kangen", "kekasih"],
-    sparkle: ["cahaya", "bersinar", "terang", "bintang", "mimpi", "lentera", "percaya", "semoga", "mereda"],
-    gold:    ["bahagia", "indah", "berdua", "lewati", "menang", "akhir"],
-    rain:    ["hujan", "air", "turun", "deras", "tetes"],
-    mist:    ["kabut", "samar", "sunyi"],
-    petals:  ["dirimu", "bersamamu", "tetap", "dekat", "untukmu", "membawaku", "menjelma"],
-    dust:    ["sepi", "gelap", "jarak", "waktu", "kenangan", "dulu", "badai", "perih", "sedih", "panjang"]
-  };
-  const MOOD_PRIORITY = ["hearts", "sparkle", "gold", "rain", "mist", "petals", "dust"];
-
-  function detectMood(text) {
-    const t = (text || "").toLowerCase();
-    for (const mood of MOOD_PRIORITY) {
-      for (const kw of MOOD_KEYWORDS[mood]) {
-        if (t.includes(kw)) return mood;
-      }
-    }
-    return "petals";
-  }
-
-  const $counter      = $("#cinemaCounter");
-  const $lyric        = $("#cinemaLyric");
-  const $photoA       = $("#cinemaPhotoA");
-  const $photoB       = $("#cinemaPhotoB");
-  const $wrapA        = $("#photoWrapA");
-  const $wrapB        = $("#photoWrapB");
-  const $opening      = $("#cinemaOpening");
-  const $ending       = $("#cinemaEnding");
-  const $endingName   = $("#endingName");
-  const $playBtn      = $("#playerPlay");
-  const $stopBtn      = $("#playerStop");
-  const $prevBtn      = $("#playerPrev");
-  const $nextBtn      = $("#playerNext");
-  const $progress     = $("#playerProgress");
-  const $progressFill = $("#playerProgressFill");
-  const $cur          = $("#playerCurrent");
-  const $dur          = $("#playerDuration");
-
-  let audio = null;
-  let lyrics = [];
-  let currentLyricIdx = -1;
-  let currentPhotoIdx = -1;
-  let currentLayer = "A";
-  let openingDismissed = false;
-  let endingShown = false;
-  let scale = 1;
-  let lineEffectTimer = null;
-  let lineEffectEndTimer = null;
-  let initialized = false;
-  let isSeeking = false;
-
-  const FALLBACK_LYRICS = [
-    { time: 0,   text: "Untukmu, yang paling lembut" },
-    { time: 8,   text: "Selamat ulang tahun, sayang" },
-    { time: 16,  text: "Hari ini dunia merayakanmu" },
-    { time: 24,  text: "Setiap tawa kecilmu..." },
-    { time: 32,  text: "...membuat hariku lebih hangat" },
-    { time: 40,  text: "Setiap ceritamu..." },
-    { time: 48,  text: "...adalah rumah untukku" },
-    { time: 56,  text: "Terima kasih sudah ada" },
-    { time: 64,  text: "Terima kasih sudah bertahan" },
-    { time: 72,  text: "Semoga tahun ini..." },
-    { time: 80,  text: "...dipenuhi hal-hal baik" },
-    { time: 88,  text: "Hati yang tenang, mimpi yang jadi" },
-    { time: 96,  text: "Dan orang-orang yang menyayangimu" },
-    { time: 104, text: "Dengan benar dan sepenuh hati" },
-    { time: 112, text: "Kamu pantas mendapatkan itu semua" },
-    { time: 120, text: "Selamat ulang tahun, cintaku 🤍" }
-  ].map(l => ({ ...l, effect: detectMood(l.text) }));
-
-  async function init() {
-    if (initialized) return;
-    initialized = true;
-    audio = ClosingMusic.audio;
-    if ($endingName) $endingName.textContent = CONFIG.name;
-
-    audio.addEventListener("timeupdate", onTimeUpdate);
-    audio.addEventListener("play", updatePlayBtn);
-    audio.addEventListener("pause", updatePlayBtn);
-    audio.addEventListener("ended", onEnded);
-    audio.addEventListener("loadedmetadata", onMeta);
-    audio.addEventListener("error", () => {
-      const $artist = $("#playerArtist");
-      if ($artist) $artist.textContent = "Lagu tidak ditemukan";
-    });
-
-    $playBtn.addEventListener("click", () => {
-      if (audio.paused) {
-        if (audio.ended) audio.currentTime = 0;
-        ClosingMusic.play();
-      } else {
-        ClosingMusic.pause();
-      }
-    });
-    $stopBtn.addEventListener("click", () => {
-      ClosingMusic.stop();
-      resetState();
-      syncFromAudio(true);
-    });
-    $prevBtn.addEventListener("click", prevPhoto);
-    $nextBtn.addEventListener("click", nextPhoto);
-    $progress.addEventListener("click", seekFromClick);
-
-    document.addEventListener("mousemove", onMouseMove);
-    requestAnimationFrame(parallaxLoop);
-
-    updatePhotoTo(0, true);
-
-    lyrics = await loadLyrics();
-    applyEffects(lyrics);
-
-    updatePlayBtn();
-    if (audio.duration) onMeta();
-  }
-
-  async function loadLyrics() {
-    const jsonSrc = CONFIG.closingLyricsSrc || CONFIG.lyricsSrc;
-    const lrcSrc  = CONFIG.closingLyricsLrc || CONFIG.lyricsLrc;
-
-    try {
-      const r = await fetch(jsonSrc);
-      if (r.ok) {
-        const data = await r.json();
-        const lines = Array.isArray(data) ? data : (data.lines || []);
-        if (lines.length) {
-          if (data.title) { const $t = $("#playerTitle"); if ($t) $t.textContent = data.title; }
-          if (data.artist) { const $a = $("#playerArtist"); if ($a) $a.textContent = data.artist; }
-          return lines.slice().sort((a,b) => a.time - b.time);
-        }
-      }
-    } catch(e) {}
-
-    try {
-      const r = await fetch(lrcSrc);
-      if (r.ok) {
-        const parsed = parseLRC(await r.text());
-        if (parsed.length) return parsed;
-      }
-    } catch(e) {}
-
-    return FALLBACK_LYRICS;
-  }
-
-  function parseLRC(text) {
-    const out = [];
-    const re = /\[(\d{1,3}):(\d{1,2}(?:\.\d+)?)\]\s*(.*)/;
-    for (const l of text.split(/\r?\n/)) {
-      const m = l.match(re);
-      if (m) {
-        const t = parseInt(m[1]) * 60 + parseFloat(m[2]);
-        const txt = m[3].trim();
-        if (txt) out.push({ time: t, text: txt });
-      }
-    }
-    return out.sort((a,b) => a.time - b.time);
-  }
-
-  function applyEffects(lines) {
-    lines.forEach((line, i) => {
-      if (LINE_OVERRIDES[i]) line.effect = LINE_OVERRIDES[i];
-      else if (!line.effect) line.effect = detectMood(line.text);
-    });
-  }
-
-  function adjustedTime(t) {
-    const d = audio.duration;
-    if (!d || !isFinite(d)) return t;
-    scale = d / EXPECTED_DURATION;
-    return t / scale;
-  }
-
-  function getPhotoIndexAt(t) {
-    for (const scene of SCENE_MAP) {
-      if (t >= scene.start && t < scene.end) {
-        if (!scene.photos.length) return null;
-        const seg = (scene.end - scene.start) / scene.photos.length;
-        const idx = Math.min(scene.photos.length - 1, Math.floor((t - scene.start) / seg));
-        return scene.photos[idx];
-      }
-    }
-    return SCENE_MAP[SCENE_MAP.length - 1].photos.slice(-1)[0] || null;
-  }
-
-  function getLyricIndexAt(t) {
-    let idx = -1;
-    for (let i = lyrics.length - 1; i >= 0; i--) {
-      if (lyrics[i].time <= t) { idx = i; break; }
-    }
-    return idx;
-  }
-
-  function onTimeUpdate() {
-    if (!isActive()) return;
-    syncFromAudio(false);
-  }
-
-  function syncFromAudio(instant) {
-    if (!audio) return;
-    if (!audio.duration || isNaN(audio.duration)) {
-      if (currentPhotoIdx === -1) updatePhotoTo(0, true);
-      return;
-    }
-
-    const rawT = audio.currentTime;
-    const t = adjustedTime(rawT);
-
-    if (!openingDismissed) {
-      if (t >= 5) {
-        $opening.classList.add("reveal");
-        openingDismissed = true;
-      }
-    }
-
-    const photoIdx = getPhotoIndexAt(t);
-    if (photoIdx !== currentPhotoIdx) {
-      updatePhotoTo(photoIdx, instant);
-      $counter.textContent = photoIdx !== null
-        ? String(photoIdx + 1).padStart(2, "0") + " / " + String(CONFIG.totalPhotos).padStart(2, "0")
-        : "— / —";
-    }
-
-    const lyricIdx = getLyricIndexAt(t);
-    if (lyricIdx !== currentLyricIdx) {
-      updateLyric(lyricIdx, t);
-      currentLyricIdx = lyricIdx;
-    }
-
-    if (!endingShown && (t >= ENDING_TIME || audio.ended)) {
-      $ending.classList.add("show");
-      endingShown = true;
-    } else if (endingShown && t < ENDING_TIME - 1 && !audio.ended) {
-      $ending.classList.remove("show");
-      endingShown = false;
-    }
-
-    $progressFill.style.width = ((rawT / audio.duration) * 100) + "%";
-    $cur.textContent = fmt(rawT);
-  }
-
-  function updatePhotoTo(index, instant) {
-    if (index === currentPhotoIdx) return;
-
-    if (index === null) {
-      $photoA.style.opacity = "0";
-      $photoB.style.opacity = "0";
-      currentPhotoIdx = -1;
-      return;
-    }
-
-    const isFirst = currentPhotoIdx === -1;
-    const nextLayer = isFirst ? "A" : (currentLayer === "A" ? "B" : "A");
-    const nextWrap = nextLayer === "A" ? $wrapA : $wrapB;
-    const prevWrap = nextLayer === "A" ? $wrapB : $wrapA;
-    const nextEl = nextLayer === "A" ? $photoA : $photoB;
-    const prevEl = nextLayer === "A" ? $photoB : $photoA;
-
-    nextEl.src = PHOTOS[index].src;
-    attachFallback(nextEl);
-    nextEl.style.animation = "none";
-    nextEl.style.transition = "none";
-    nextEl.style.opacity = "0";
-    void nextEl.offsetHeight;
-    nextEl.style.animation = `kenburns${index % 2 === 0 ? "A" : "B"} 20s ease-out forwards`;
-
-    nextWrap.style.zIndex = "2";
-    prevWrap.style.zIndex = "1";
-
-    if (isFirst || instant) {
-      nextEl.style.opacity = "1";
-      if (!isFirst) {
-        prevEl.style.transition = "none";
-        prevEl.style.opacity = "0";
-      }
-    } else {
-      prevEl.style.transition = "none";
-      prevEl.style.opacity = "1";
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          nextEl.style.transition = "opacity 1.2s cubic-bezier(.4,0,.2,1)";
-          nextEl.style.opacity = "1";
-        });
-      });
-
-      const target = index;
-      setTimeout(() => {
-        if (currentPhotoIdx === target) {
-          prevEl.style.transition = "none";
-          prevEl.style.opacity = "0";
-        }
-      }, 1300);
-    }
-
-    currentLayer = nextLayer;
-    currentPhotoIdx = index;
-  }
-
-  function updateLyric(idx, t) {
-    $lyric.classList.remove("show");
-    void $lyric.offsetWidth;
-    stopLineEffect();
-
-    if (idx === -1) {
-      $lyric.textContent = "";
-      return;
-    }
-
-    const line = lyrics[idx];
-    $lyric.textContent = line.text;
-    $lyric.setAttribute("data-mood", line.effect || "petals");
-    $lyric.classList.add("show");
-
-    const nextTime = lyrics[idx + 1] ? lyrics[idx + 1].time : line.time + 5;
-    const durationMs = Math.max(1000, (nextTime - line.time) * scale * 1000);
-
-    activateLineEffect(line.effect, durationMs);
-  }
-
-  function activateLineEffect(effect, durationMs) {
-    if (!effect || effect === "none") return;
-    CinemaFX.spawn(effect);
-    const intervalMs = effect === "gold" ? 500 : 350;
-    lineEffectTimer = setInterval(() => CinemaFX.spawn(effect), intervalMs);
-    lineEffectEndTimer = setTimeout(stopLineEffect, durationMs + 200);
-  }
-
-  function stopLineEffect() {
-    if (lineEffectTimer) { clearInterval(lineEffectTimer); lineEffectTimer = null; }
-    if (lineEffectEndTimer) { clearTimeout(lineEffectEndTimer); lineEffectEndTimer = null; }
-  }
-
-  function nextPhoto() {
-    if (!audio || !audio.duration) return;
-    const rawT = audio.currentTime;
-    const t = adjustedTime(rawT);
-    const curIdx = getPhotoIndexAt(t);
-    const allPhotos = SCENE_MAP.flatMap(s => s.photos);
-    const pos = allPhotos.indexOf(curIdx);
-    if (pos < allPhotos.length - 1) {
-      const nextId = allPhotos[pos + 1];
-      for (const scene of SCENE_MAP) {
-        const i = scene.photos.indexOf(nextId);
-        if (i !== -1) {
-          const seg = (scene.end - scene.start) / scene.photos.length;
-          audio.currentTime = (scene.start + i * seg + 0.05) * scale;
-          break;
-        }
-      }
-      syncFromAudio(true);
-    }
-  }
-
-  function prevPhoto() {
-    if (!audio || !audio.duration) return;
-    const rawT = audio.currentTime;
-    const t = adjustedTime(rawT);
-    const curIdx = getPhotoIndexAt(t);
-    const allPhotos = SCENE_MAP.flatMap(s => s.photos);
-    const pos = allPhotos.indexOf(curIdx);
-    if (pos > 0) {
-      const prevId = allPhotos[pos - 1];
-      for (const scene of SCENE_MAP) {
-        const i = scene.photos.indexOf(prevId);
-        if (i !== -1) {
-          const seg = (scene.end - scene.start) / scene.photos.length;
-          audio.currentTime = (scene.start + i * seg + 0.05) * scale;
-          break;
-        }
-      }
-      syncFromAudio(true);
-    }
-  }
-
-  function seekFromClick(e) {
-    if (!audio || !audio.duration) return;
-    const r = $progress.getBoundingClientRect();
-    const p = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
-    isSeeking = true;
-    audio.currentTime = p * audio.duration;
-    syncFromAudio(true);
-    setTimeout(() => { isSeeking = false; }, 400);
-  }
-
-  function onMeta() {
-    if (audio.duration && $dur) $dur.textContent = fmt(audio.duration);
-    PHOTOS.forEach(p => { const img = new Image(); img.src = p.src; });
-  }
-
-  function updatePlayBtn() {
-    if (!audio) return;
-    $playBtn.classList.toggle("playing", !audio.paused);
-  }
-
-  function onEnded() {
-    updatePlayBtn();
-    $ending.classList.add("show");
-    endingShown = true;
-    stopLineEffect();
-    $lyric.classList.remove("show");
-    $lyric.textContent = "";
-  }
-
-  function isActive() {
-    return document.getElementById("page-closing").classList.contains("active");
-  }
-
-  function fmt(sec) {
-    if (!isFinite(sec)) return "0:00";
-    return Math.floor(sec / 60) + ":" + String(Math.floor(sec % 60)).padStart(2, "0");
-  }
-
-  let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
-  function onMouseMove(e) {
-    if (!isActive()) return;
-    const cx0 = window.innerWidth / 2;
-    const cy0 = window.innerHeight / 2;
-    targetX = ((e.clientX - cx0) / cx0) * 10;
-    targetY = ((e.clientY - cy0) / cy0) * 10;
-  }
-  function parallaxLoop() {
-    currentX += (targetX - currentX) * 0.06;
-    currentY += (targetY - currentY) * 0.06;
-    [$wrapA, $wrapB].forEach(w => {
-      if (w) w.style.transform = `translate(${currentX}px, ${currentY}px)`;
-    });
-    requestAnimationFrame(parallaxLoop);
-  }
-
-  function resetState() {
-    currentLyricIdx = -1;
-    currentPhotoIdx = -1;
-    currentLayer = "A";
-    endingShown = false;
-    openingDismissed = false;
-    $ending.classList.remove("show");
-    $opening.classList.remove("reveal");
-    $lyric.classList.remove("show");
-    $lyric.textContent = "";
-    stopLineEffect();
-    CinemaFX.clear();
-  }
-
-  document.addEventListener("pagechange", async (e) => {
-    if (e.detail.id === "closing") {
-      await init();
-      openingDismissed = audio.currentTime >= 5;
-      if (openingDismissed) $opening.classList.add("reveal");
-      CinemaFX.start();
-
-      setTimeout(() => {
-        if (ClosingMusic.audio.paused && ClosingMusic.audio.currentTime < 0.1) {
-          ClosingMusic.play();
-        }
-        currentPhotoIdx = -1;
-        currentLyricIdx = -1;
-        syncFromAudio(true);
-        updatePlayBtn();
-      }, 100);
-    } else {
-      CinemaFX.stop();
-      stopLineEffect();
-    }
-  });
-
-  return { init };
-})();
-
-/* =========================================================
-   CINEMA FX
-   ========================================================= */
-const CinemaFX = (() => {
-  const cv = document.getElementById("cinemaParticles");
-  if (!cv) return { start(){}, stop(){}, spawn(){}, clear(){}, resize(){} };
+const Sky = (() => {
+  const cv = document.getElementById("cinemaSky");
+  if (!cv) return { start(){}, stop(){}, setSeason(){} };
   const ctx = cv.getContext("2d");
   let w = 0, h = 0, dpr = 1;
-  const particles = [];
-  let raf = null;
+  let running = false; let raf = null; let lastT = 0;
+  let season = "winter";
 
-  function resize() {
+  const stars = []; const shootingStars = [];
+  let moonRotation = 0; let nextShootingStarAt = 0; let shootingEnabled = true;
+
+  const STAR_COLORS = {
+    winter: ["#ffffff", "#dfe8ff", "#e8f0ff"], spring: ["#ffffff", "#ffe9f1", "#ffd7e3"],
+    summer: ["#ffffff", "#fff5cc", "#ffe9a8"], autumn: ["#ffffff", "#ffe0b8", "#ffcf8a"]
+  };
+
+  const MOON_GLOW = {
+    winter: { core: "rgba(255, 250, 240, 0.32)", mid: "rgba(230, 240, 255, 0.10)" },
+    spring: { core: "rgba(255, 240, 220, 0.32)", mid: "rgba(255, 220, 220, 0.10)" },
+    summer: { core: "rgba(255, 240, 180, 0.45)", mid: "rgba(255, 220, 140, 0.16)" },
+    autumn: { core: "rgba(255, 220, 160, 0.38)", mid: "rgba(255, 190, 120, 0.14)" }
+  };
+
+  function resize(){
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = cv.clientWidth || window.innerWidth;
-    h = cv.clientHeight || window.innerHeight;
-    cv.width = Math.floor(w * dpr);
-    cv.height = Math.floor(h * dpr);
+    w = cv.clientWidth || window.innerWidth; h = cv.clientHeight || window.innerHeight;
+    cv.width = Math.floor(w * dpr); cv.height = Math.floor(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  function spawn(effect) {
-    if (!w || !h) resize();
-    switch (effect) {
-      case "hearts":
-        particles.push({
-          kind: "heart", x: rnd(0, w), y: h + 20,
-          vx: rnd(-0.3, 0.3), vy: rnd(-1.6, -0.9),
-          size: rnd(14, 24), life: 1, decay: 0.005,
-          rot: rnd(-0.2, 0.2), vr: rnd(-0.008, 0.008), hue: 340
-        });
-        break;
-      case "dust":
-        particles.push({
-          kind: "dust", x: rnd(0, w), y: rnd(0, h),
-          vx: rnd(-0.25, 0.25), vy: rnd(-0.3, 0.15),
-          size: rnd(1, 2.5), life: 1, decay: 0.004, hue: 35
-        });
-        break;
-      case "mist":
-        particles.push({
-          kind: "mist", x: rnd(0, w), y: rnd(h * 0.3, h * 0.9),
-          vx: rnd(-0.3, 0.3), vy: rnd(-0.15, 0.15),
-          size: rnd(50, 90), life: 1, decay: 0.003, hue: 340
-        });
-        break;
-      case "petals":
-        particles.push({
-          kind: "petal", x: rnd(0, w), y: -20,
-          vx: rnd(-0.8, 0.8), vy: rnd(0.6, 1.4),
-          size: rnd(6, 12), life: 1, decay: 0.003,
-          rot: rnd(0, 6.28), vr: rnd(-0.03, 0.03),
-          sway: rnd(0.5, 1.5), phase: rnd(0, 6.28)
-        });
-        break;
-      case "sparkle":
-        particles.push({
-          kind: "sparkle",
-          x: rnd(w * 0.1, w * 0.9), y: rnd(h * 0.2, h * 0.8),
-          vx: rnd(-0.2, 0.2), vy: rnd(-0.3, 0.1),
-          size: rnd(1.5, 3.5), life: 1, decay: 0.02, hue: 45
-        });
-        break;
-      case "gold":
-        for (let i = 0; i < 6; i++) {
-          const a = Math.random() * Math.PI * 2;
-          const sp = rnd(1, 3);
-          particles.push({
-            kind: "sparkle",
-            x: w / 2, y: h / 2,
-            vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
-            size: rnd(2, 4), life: 1, decay: 0.012, hue: 45
-          });
-        }
-        break;
-      case "rain":
-        particles.push({
-          kind: "rain", x: rnd(0, w), y: -10,
-          vx: rnd(-0.2, 0.2), vy: rnd(3, 5),
-          size: rnd(1.5, 2.5), life: 1, decay: 0.005, hue: 200
-        });
-        break;
+  function initStars(){
+    stars.length = 0;
+    const count = Math.floor((w * h) / 3500);
+    const palette = STAR_COLORS[season] || STAR_COLORS.winter;
+    for (let i = 0; i < count; i++){
+      stars.push({ x: rnd(0, w), y: rnd(0, h * 0.85), size: rnd(0.4, 1.8), baseAlpha: rnd(0.25, 1), twinkleSpeed: rnd(0.4, 1.8), twinklePhase: rnd(0, Math.PI * 2), color: palette[(Math.random() * palette.length) | 0], driftX: rnd(-0.02, 0.02), driftY: rnd(-0.005, 0.005) });
     }
   }
 
-  function drawHeart(x, y, size) {
-    ctx.beginPath();
-    ctx.moveTo(x, y + size * 0.3);
-    ctx.bezierCurveTo(x, y, x - size * 0.5, y, x - size * 0.5, y + size * 0.3);
-    ctx.bezierCurveTo(x - size * 0.5, y + size * 0.6, x, y + size * 0.8, x, y + size);
-    ctx.bezierCurveTo(x, y + size * 0.8, x + size * 0.5, y + size * 0.6, x + size * 0.5, y + size * 0.3);
-    ctx.bezierCurveTo(x + size * 0.5, y, x, y, x, y + size * 0.3);
-    ctx.fill();
+  function spawnShootingStar(){
+    const goingLeft = Math.random() < 0.5;
+    const startX = goingLeft ? rnd(w * 0.55, w * 0.95) : rnd(w * 0.05, w * 0.45);
+    const startY = rnd(0, h * 0.25);
+    const angle = goingLeft ? Math.PI * 0.72 + rnd(-0.15, 0.15) : Math.PI * 0.28 + rnd(-0.15, 0.15);
+    const speed = rnd(10, 16);
+    shootingStars.push({ x: startX, y: startY, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, life: 1, decay: rnd(0.008, 0.013), length: rnd(120, 240), width: rnd(1.6, 3), color: Math.random() < 0.3 ? "#ffe9a8" : "#ffffff" });
   }
 
-  function loop() {
-    ctx.clearRect(0, 0, w, h);
-    for (let i = particles.length - 1; i >= 0; i--) {
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      p.life -= p.decay;
+  function drawMoon(now){
+    if (season === "summer") return;
+    const moonX = w * 0.80; const moonY = h * 0.16 + Math.sin(now * 0.0004) * 6; const moonR = Math.min(w, h) * 0.058;
+    const glowColors = MOON_GLOW[season] || MOON_GLOW.winter;
+    ctx.save(); ctx.translate(moonX, moonY);
+    const glow = ctx.createRadialGradient(0, 0, moonR * 0.6, 0, 0, moonR * 3.2);
+    glow.addColorStop(0, glowColors.core); glow.addColorStop(0.5, glowColors.mid); glow.addColorStop(1, "rgba(255, 220, 160, 0)");
+    ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(0, 0, moonR * 3.2, 0, Math.PI * 2); ctx.fill();
+    ctx.rotate(moonRotation);
+    const body = ctx.createRadialGradient(-moonR * 0.3, -moonR * 0.3, 0, 0, 0, moonR);
+    body.addColorStop(0, "#fffcf0"); body.addColorStop(0.5, "#fff3d0"); body.addColorStop(0.9, "#f0dcb4"); body.addColorStop(1, "#d9b26f");
+    ctx.fillStyle = body; ctx.beginPath(); ctx.arc(0, 0, moonR, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "rgba(180, 140, 100, 0.30)";
+    const craters = [ { x: -0.3, y: -0.2, r: 0.14 }, { x: 0.18, y: 0.25, r: 0.2 }, { x: 0.32, y: -0.35, r: 0.09 }, { x: -0.45, y: 0.3, r: 0.07 }, { x: 0.05, y: -0.5, r: 0.06 }, { x: -0.1, y: 0.55, r: 0.1 }, { x: -0.55, y: -0.1, r: 0.05 } ];
+    craters.forEach(c => { ctx.beginPath(); ctx.arc(c.x * moonR, c.y * moonR, c.r * moonR, 0, Math.PI * 2); ctx.fill(); });
+    ctx.fillStyle = "rgba(255, 255, 255, 0.18)"; ctx.beginPath(); ctx.arc(-moonR * 0.18, -moonR * 0.18, moonR * 0.5, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
 
-      if (p.kind === "petal") {
-        p.phase += 0.03;
-        p.x += Math.sin(p.phase) * 0.5;
-        p.rot += p.vr;
-      } else if (p.kind === "heart") {
-        p.rot += p.vr;
-      }
-
-      if (p.life <= 0 || p.y < -80 || p.y > h + 80 || p.x < -80 || p.x > w + 80) {
-        particles.splice(i, 1);
-        continue;
-      }
-
-      ctx.save();
-      ctx.globalAlpha = Math.max(0, p.life);
-      ctx.translate(p.x, p.y);
-
-      switch (p.kind) {
-        case "heart":
-          ctx.rotate(p.rot);
-          ctx.fillStyle = `hsl(${p.hue}, 70%, 68%)`;
-          ctx.shadowBlur = 14;
-          ctx.shadowColor = `hsl(${p.hue}, 85%, 62%)`;
-          drawHeart(0, -p.size / 2, p.size);
-          break;
-        case "dust":
-          ctx.fillStyle = `hsl(${p.hue}, 45%, 78%)`;
-          ctx.beginPath();
-          ctx.arc(0, 0, p.size, 0, 6.283);
-          ctx.fill();
-          break;
-        case "mist":
-          ctx.fillStyle = `hsla(${p.hue}, 30%, 85%, 0.14)`;
-          ctx.filter = "blur(10px)";
-          ctx.beginPath();
-          ctx.arc(0, 0, p.size, 0, 6.283);
-          ctx.fill();
-          ctx.filter = "none";
-          break;
-        case "petal": {
-          ctx.rotate(p.rot);
-          const g = ctx.createLinearGradient(-p.size, -p.size, p.size, p.size);
-          g.addColorStop(0, "#ff9dba");
-          g.addColorStop(0.5, "#e86a92");
-          g.addColorStop(1, "#8a0d2c");
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          ctx.moveTo(0, -p.size);
-          ctx.bezierCurveTo(p.size * 0.9, -p.size * 0.4, p.size * 0.7, p.size * 0.7, 0, p.size);
-          ctx.bezierCurveTo(-p.size * 0.7, p.size * 0.7, -p.size * 0.9, -p.size * 0.4, 0, -p.size);
-          ctx.fill();
-          break;
-        }
-        case "sparkle": {
-          ctx.fillStyle = `hsl(${p.hue}, 88%, 72%)`;
-          ctx.shadowBlur = 14;
-          ctx.shadowColor = `hsl(${p.hue}, 92%, 65%)`;
-          ctx.beginPath();
-          for (let j = 0; j < 4; j++) {
-            const angle = j * Math.PI / 2;
-            const x1 = Math.cos(angle) * p.size * 2;
-            const y1 = Math.sin(angle) * p.size * 2;
-            const x2 = Math.cos(angle + Math.PI / 4) * p.size * 0.5;
-            const y2 = Math.sin(angle + Math.PI / 4) * p.size * 0.5;
-            if (j === 0) ctx.moveTo(x1, y1);
-            else ctx.lineTo(x1, y1);
-            ctx.lineTo(x2, y2);
-          }
-          ctx.closePath();
-          ctx.fill();
-          break;
-        }
-        case "rain":
-          ctx.fillStyle = `hsla(${p.hue}, 55%, 82%, 0.65)`;
-          ctx.beginPath();
-          ctx.ellipse(0, 0, p.size * 0.7, p.size * 2.5, 0, 0, 6.283);
-          ctx.fill();
-          break;
-      }
-      ctx.restore();
+  function loop(now){
+    if (!running){ raf = null; return; }
+    const dt = Math.min(48, now - lastT) / 16.667; lastT = now; ctx.clearRect(0, 0, w, h);
+    const time = now * 0.001;
+    for (const s of stars){
+      const twinkle = 0.6 + 0.4 * Math.sin(time * s.twinkleSpeed + s.twinklePhase); const alpha = s.baseAlpha * twinkle;
+      s.x += s.driftX * dt; s.y += s.driftY * dt;
+      if (s.x < -5) s.x = w + 5; if (s.x > w + 5) s.x = -5; if (s.y < -5) s.y = h * 0.85; if (s.y > h * 0.85) s.y = -5;
+      ctx.globalAlpha = alpha; ctx.fillStyle = s.color;
+      if (s.size > 1.2){ ctx.beginPath(); ctx.arc(s.x, s.y, s.size * 2.5, 0, Math.PI * 2); ctx.globalAlpha = alpha * 0.25; ctx.fill(); ctx.globalAlpha = alpha; }
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1; moonRotation += 0.002 * dt; drawMoon(now);
+    if (shootingEnabled && season !== "summer" && now >= nextShootingStarAt){ spawnShootingStar(); nextShootingStarAt = now + rnd(4500, 9500); }
+    for (let i = shootingStars.length - 1; i >= 0; i--){
+      const ss = shootingStars[i]; ss.x += ss.vx * dt; ss.y += ss.vy * dt; ss.life -= ss.decay * dt;
+      if (ss.life <= 0 || ss.x < -250 || ss.y > h + 250){ shootingStars.splice(i, 1); continue; }
+      const mag = Math.sqrt(ss.vx * ss.vx + ss.vy * ss.vy) || 1; const tailX = ss.x - (ss.vx / mag) * ss.length; const tailY = ss.y - (ss.vy / mag) * ss.length;
+      const grad = ctx.createLinearGradient(ss.x, ss.y, tailX, tailY);
+      grad.addColorStop(0, `rgba(255, 255, 255, ${ss.life})`); grad.addColorStop(0.3, `rgba(255, 240, 200, ${ss.life * 0.7})`); grad.addColorStop(1, `rgba(255, 240, 200, 0)`);
+      ctx.strokeStyle = grad; ctx.lineWidth = ss.width; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(ss.x, ss.y); ctx.lineTo(tailX, tailY); ctx.stroke();
+      ctx.fillStyle = `rgba(255, 255, 255, ${ss.life})`; ctx.beginPath(); ctx.arc(ss.x, ss.y, ss.width * 1.3, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = `rgba(255, 240, 200, ${ss.life * 0.45})`; ctx.beginPath(); ctx.arc(ss.x, ss.y, ss.width * 4.5, 0, Math.PI * 2); ctx.fill();
     }
     raf = requestAnimationFrame(loop);
   }
 
-  function start() { if (!raf) { resize(); loop(); } }
-  function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } clear(); }
-  function clear() { particles.length = 0; }
+  window.addEventListener("resize", () => { if (running){ resize(); initStars(); } });
 
-  window.addEventListener("resize", () => { if (raf) resize(); });
+  return {
+    start(){ if (running) return; running = true; resize(); initStars(); shootingEnabled = true; nextShootingStarAt = performance.now() + 3000; lastT = performance.now(); if (!raf) raf = requestAnimationFrame(loop); const a = ClosingMusic.audio; if (!a.__skySynced){ a.__skySynced = true; a.addEventListener("pause", () => { shootingEnabled = false; }); a.addEventListener("play", () => { shootingEnabled = true; nextShootingStarAt = performance.now() + 3000; }); } },
+    stop(){ running = false; if (raf){ cancelAnimationFrame(raf); raf = null; } stars.length = 0; shootingStars.length = 0; ctx.clearRect(0, 0, w, h); },
+    setSeason(s){ if (season === s) return; season = s; moonRotation = 0; if (running){ resize(); initStars(); } }
+  };
+})();
 
-  return { start, stop, spawn, clear, resize };
+/* =========================================================
+   FIREWORKS
+   ========================================================= */
+const Fireworks = (() => {
+  const cv = document.getElementById("cinemaFireworks");
+  if (!cv) return { start(){}, stop(){}, burstTransition(){}, heartFinale(){} };
+  const ctx = cv.getContext("2d");
+  let w = 0, h = 0, dpr = 1;
+  let active = false; let raf = null; let lastT = 0;
+  const rockets = []; const sparks = []; const MAX_PARTICLES = 2400;
+
+  const PALETTES = {
+    winter:  [["#a8d8ff", "#ffffff", "#c4e8ff", "#e0f0ff"], ["#b8c8ff", "#ffffff", "#d0d8ff", "#e8eeff"]],
+    spring:  [["#ffb3d9", "#ffe0ec", "#ffffff", "#ffd7a8"], ["#ffc4e0", "#ffd6e6", "#ffffff", "#ffdfa8"]],
+    summer:  [["#ffd166", "#ffe9a8", "#ff9a56", "#ffffff"], ["#ffb84a", "#ffe9a8", "#ff8c42", "#fff5cc"]],
+    autumn:  [["#ff8c42", "#ffb84a", "#c2452e", "#ffe9a8"], ["#e8734a", "#ffa64a", "#8b3a2e", "#ffd7a8"]]
+  };
+
+  function pickColor(palette){ return palette[(Math.random() * palette.length) | 0]; }
+  function resize(){ dpr = Math.min(window.devicePixelRatio || 1, 2); w = cv.clientWidth || window.innerWidth; h = cv.clientHeight || window.innerHeight; cv.width = Math.floor(w * dpr); cv.height = Math.floor(h * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+
+  function launchRocket(opts){
+    opts = opts || {};
+    const x = opts.x !== undefined ? opts.x : rnd(w * 0.15, w * 0.85);
+    const targetY = opts.targetY !== undefined ? opts.targetY : rnd(h * 0.15, h * 0.5);
+    const palette = opts.palette || PALETTES.winter[0];
+    const vx = opts.vx !== undefined ? opts.vx : rnd(-0.3, 0.3);
+    const scale = opts.scale || 1;
+    const g = 0.15; const distance = h + 20 - targetY; const v0 = Math.sqrt(2 * g * distance) * rnd(0.94, 1.06);
+    rockets.push({ x, y: h + 20, vx, vy: -v0, targetY, palette, scale, age: 0 });
+  }
+
+  function explode(r){
+    const x = r.x, y = r.y; const palette = r.palette; const sc = r.scale || 1;
+    sparks.push({ kind: "flash", x, y, r: 8, maxR: 100 * sc, life: 1, decay: 0.06, color: "#ffffff" });
+    sparks.push({ kind: "ring", x, y, r: 5, maxR: rnd(100, 160) * sc, life: 1, decay: 0.045, color: pickColor(palette) });
+    const count = Math.floor(140 * Math.max(0.6, sc));
+    for (let i = 0; i < count; i++){
+      const angle = Math.random() * Math.PI * 2; const s = 4.5 * rnd(0.85, 1.1) * sc;
+      sparks.push({ kind: "spark", x, y, vx: Math.cos(angle) * s, vy: Math.sin(angle) * s, life: 1, decay: rnd(0.009, 0.014), color: pickColor(palette), size: rnd(1.6, 2.8), gravity: 0.035, drag: 0.985 });
+    }
+  }
+
+  function updateRockets(dt){
+    for (let i = rockets.length - 1; i >= 0; i--){
+      const r = rockets[i]; r.age += dt;
+      if (sparks.length < MAX_PARTICLES && Math.random() < 0.7){ sparks.push({ kind: "spark", x: r.x + rnd(-1.5, 1.5), y: r.y + rnd(-1, 1), vx: rnd(-0.4, 0.4), vy: rnd(0.2, 0.8), life: 1, decay: rnd(0.04, 0.07), color: "#ffd88a", size: rnd(1, 2), gravity: 0.02, drag: 0.94 }); }
+      r.x += r.vx * dt; r.y += r.vy * dt; r.vy += 0.15 * dt;
+      if (r.y <= r.targetY || r.vy >= 0){ explode(r); rockets.splice(i, 1); }
+    }
+  }
+
+  function updateSparks(dt){
+    for (let i = sparks.length - 1; i >= 0; i--){
+      const s = sparks[i];
+      if (s.kind === "flash"){ s.r += (s.maxR - s.r) * 0.12 * dt; s.life -= s.decay * dt; if (s.life <= 0) sparks.splice(i, 1); continue; }
+      if (s.kind === "ring"){ s.r += (s.maxR - s.r) * 0.08 * dt; s.life -= s.decay * dt; if (s.life <= 0) sparks.splice(i, 1); continue; }
+      s.vy += (s.gravity || 0) * dt; s.vx *= Math.pow(s.drag || 0.99, dt); s.vy *= Math.pow(s.drag || 0.99, dt);
+      s.x += s.vx * dt; s.y += s.vy * dt; s.life -= s.decay * dt;
+      if (s.life <= 0 || s.y > h + 100 || s.x < -100 || s.x > w + 100){ sparks.splice(i, 1); }
+    }
+  }
+
+  function render(){
+    ctx.clearRect(0, 0, w, h); ctx.save(); ctx.globalCompositeOperation = "lighter";
+    for (const r of rockets){ ctx.fillStyle = "#ffffff"; ctx.beginPath(); ctx.arc(r.x, r.y, 2.5, 0, 6.283); ctx.fill(); ctx.globalAlpha = 0.4; ctx.beginPath(); ctx.arc(r.x, r.y, 6, 0, 6.283); ctx.fill(); ctx.globalAlpha = 1; }
+    for (const s of sparks){
+      if (s.kind === "flash"){ const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r); g.addColorStop(0, `rgba(255,255,255,${s.life * 0.9})`); g.addColorStop(0.4, `rgba(255,240,180,${s.life * 0.5})`); g.addColorStop(1, "rgba(255,200,100,0)"); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill(); continue; }
+      if (s.kind === "ring"){ ctx.strokeStyle = s.color; ctx.lineWidth = 2.2 * s.life; ctx.globalAlpha = s.life * 0.7; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.stroke(); ctx.globalAlpha = 1; continue; }
+      ctx.globalAlpha = Math.max(0, s.life) * 0.35; ctx.fillStyle = s.color; ctx.beginPath(); ctx.arc(s.x, s.y, s.size * s.life * 2.4, 0, 6.283); ctx.fill();
+      ctx.globalAlpha = Math.max(0, s.life); ctx.beginPath(); ctx.arc(s.x, s.y, s.size * s.life, 0, 6.283); ctx.fill(); ctx.globalAlpha = 1;
+    }
+    ctx.restore();
+  }
+
+  function loop(now){
+    if (!active){ raf = null; return; }
+    const dt = Math.min(48, now - lastT) / 16.667; lastT = now;
+    updateRockets(dt); updateSparks(dt); render();
+    if (sparks.length > MAX_PARTICLES){ sparks.splice(0, sparks.length - MAX_PARTICLES); }
+    if (rockets.length === 0 && sparks.length === 0){ active = false; if (raf) cancelAnimationFrame(raf); raf = null; ctx.clearRect(0, 0, w, h); return; }
+    raf = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener("resize", () => { if (active) resize(); });
+
+  return {
+    start(){ if (active) return; active = true; resize(); lastT = performance.now(); if (!raf) raf = requestAnimationFrame(loop); },
+    stop(){ active = false; if (raf){ cancelAnimationFrame(raf); raf = null; } rockets.length = 0; sparks.length = 0; if (ctx) ctx.clearRect(0, 0, w, h); },
+    burstTransition(season){ this.start(); const palettes = PALETTES[season] || PALETTES.winter; for (let i = 0; i < 8; i++){ setTimeout(() => { if (!active) return; launchRocket({ x: rnd(w * 0.15, w * 0.85), targetY: rnd(h * 0.15, h * 0.5), palette: pick(palettes), scale: rnd(1.1, 1.5) }); }, i * 180); } },
+    heartFinale(){ this.start(); const palettes = PALETTES.autumn; const cx = w / 2; const cy = h / 2; const heartW = Math.min(w * 0.85, 700); const scale = heartW / 32; const points = 16;
+      for (let i = 0; i < points; i++){ setTimeout(() => { if (!active) return; const t = (i / points) * Math.PI * 2; const hx = 16 * Math.pow(Math.sin(t), 3); const hy = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t)); launchRocket({ x: cx + hx * scale, targetY: cy + hy * scale, palette: pick(palettes), vx: 0, scale: 0.7 }); }, i * 140); }
+      setTimeout(() => { for (let i = 0; i < 8; i++){ setTimeout(() => { if (!active) return; const t = (i / 8) * Math.PI * 2 + 0.3; const hx = 16 * Math.pow(Math.sin(t), 3); const hy = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t)); launchRocket({ x: cx + hx * scale * 0.5, targetY: cy + hy * scale * 0.5, palette: pick(palettes), vx: 0, scale: 0.55 }); }, i * 180); } }, points * 140 + 400);
+    }
+  };
+})();
+
+/* =========================================================
+   SEASONS — FINAL VERSION (Mulus, Bersih, Tanpa Garis)
+   ========================================================= */
+const Seasons = (() => {
+  const cv = document.getElementById("cinemaWeather");
+  if (!cv) return { start(){}, stop(){}, setSeason(){} };
+  const ctx = cv.getContext("2d");
+  let w = 0, h = 0, dpr = 1;
+  let running = false;
+  let raf = null;
+  let lastT = 0;
+
+  let season = "winter";
+  let seasonProgress = 0;
+  let songProgress = 0; 
+  
+  let currentMix = { winter: 1, spring: 0, summer: 0, autumn: 0 };
+  let targetMix = { winter: 1, spring: 0, summer: 0, autumn: 0 };
+
+  // Particles
+  let snowflakes = [], springPetals = [], butterflies = [], clouds = [];
+  let dustParticles = [], autumnLeaves = [], windGusts = [], fireflies = [];
+  
+  let lightningAlpha = 0;
+  let nextLightningTime = 0;
+  let cameraParallaxX = 0;
+
+  // Image Assets
+  const images = {
+    mountainBack: new Image(),
+    mountainFront: new Image(),
+    forest: new Image()
+  };
+  images.mountainBack.src = "assets/mountain-back.png";
+  images.mountainFront.src = "assets/mountain-front.png";
+  images.forest.src = "assets/forest.png";
+
+  // Palet Warna (RGB)
+  const SKY_PALETTES = {
+    winter: [[10, 17, 31], [24, 36, 58], [42, 59, 92]],
+    spring: [[100, 160, 220], [150, 200, 230], [200, 230, 240]],
+    summer: [[43, 108, 176], [99, 179, 237], [246, 173, 85]],
+    autumn: [[45, 31, 28], [107, 60, 44], [192, 92, 62]]
+  };
+
+  const LAYOUT = { mountainBackY: 0.70, mountainFrontY: 0.65, forestY: 0.65 };
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = cv.clientWidth || window.innerWidth;
+    h = cv.clientHeight || window.innerHeight;
+    cv.width = Math.floor(w * dpr); cv.height = Math.floor(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    initParticles();
+  }
+
+  function initParticles() {
+    snowflakes = []; springPetals = []; butterflies = []; clouds = [];
+    dustParticles = []; autumnLeaves = []; fireflies = []; windGusts = [];
+
+    for (let i = 0; i < Math.floor((w * h) / 3500); i++) {
+      snowflakes.push({ x: rnd(0, w), y: rnd(-h, h), size: rnd(0.8, 2.2), vy: rnd(0.5, 1.5), vx: rnd(-0.6, 0.6), phase: rnd(0, 6.28), sway: rnd(0.3, 1.2) });
+    }
+    for (let i = 0; i < 60; i++) {
+      springPetals.push({ x: rnd(0, w), y: rnd(0, h), size: rnd(4, 9), vy: rnd(-1.2, -0.3), vx: rnd(-0.8, 0.8), phase: rnd(0, 6.28), rot: rnd(0, 6.28) });
+    }
+    for (let i = 0; i < 10; i++) {
+      butterflies.push({ x: rnd(0, w), y: rnd(h * 0.4, h * 0.8), vx: rnd(-1, 1), vy: rnd(-0.5, 0.5), phase: rnd(0, 6.28) });
+    }
+    for (let i = 0; i < 6; i++) {
+      clouds.push({ x: (w / 6) * i + rnd(-50, 50), y: rnd(h * 0.1, h * 0.3), scale: rnd(0.2, 0.4), speed: rnd(0.2, 0.5), parts: Array.from({length: 5}, () => ({ dx: rnd(-40,40), dy: rnd(-15,15), r: rnd(20,50) })) });
+    }
+    for (let i = 0; i < 80; i++) {
+      dustParticles.push({ x: rnd(0, w), y: rnd(h*0.3, h), vx: rnd(-0.5, 0.5), vy: rnd(-0.5, 0.2), size: rnd(1, 3) });
+    }
+    for (let i = 0; i < 30; i++) {
+      fireflies.push({ x: rnd(0, w), y: rnd(h*0.6, h*0.95), phase: rnd(0, 100) });
+    }
+    for (let i = 0; i < 50; i++) {
+      autumnLeaves.push({ x: rnd(0, w), y: rnd(-h, 0), size: rnd(5, 12), vy: rnd(1.5, 3), vx: rnd(-1, 1), phase: rnd(0, 6.28), rot: rnd(0, 6.28), vr: rnd(-0.02, 0.02) });
+    }
+  }
+
+  function drawBackground() {
+    let skyGrad = ctx.createLinearGradient(0, 0, 0, h);
+    let c0 = [0,0,0], c1 = [0,0,0], c2 = [0,0,0];
+    for (const s in currentMix) {
+      const weight = currentMix[s];
+      if (weight <= 0.01) continue;
+      const pal = SKY_PALETTES[s];
+      c0[0] += pal[0][0] * weight; c0[1] += pal[0][1] * weight; c0[2] += pal[0][2] * weight;
+      c1[0] += pal[1][0] * weight; c1[1] += pal[1][1] * weight; c1[2] += pal[1][2] * weight;
+      c2[0] += pal[2][0] * weight; c2[1] += pal[2][1] * weight; c2[2] += pal[2][2] * weight;
+    }
+    skyGrad.addColorStop(0, `rgb(${c0[0]|0},${c0[1]|0},${c0[2]|0})`);
+    skyGrad.addColorStop(0.6, `rgb(${c1[0]|0},${c1[1]|0},${c1[2]|0})`);
+    skyGrad.addColorStop(1, `rgb(${c2[0]*0.3|0},${c2[1]*0.3|0},${c2[2]*0.3|0})`);
+    
+    ctx.fillStyle = skyGrad; ctx.fillRect(0, 0, w, h);
+    drawAsset(images.mountainBack, LAYOUT.mountainBackY, 0);
+    drawAsset(images.mountainFront, LAYOUT.mountainFrontY, 0);
+    drawAsset(images.forest, LAYOUT.forestY, 0);
+  }
+
+  function drawAsset(img, yPercent, parallaxX) {
+    if (!img.complete || img.naturalWidth === 0) return;
+    const imgW = w; const imgH = img.naturalHeight * (imgW / img.naturalWidth);
+    const drawX = (w - imgW) / 2 + parallaxX; const drawY = (h * yPercent) - (imgH / 2);
+    ctx.drawImage(img, drawX, drawY, imgW, imgH);
+  }
+
+  function updateWinter(dt) {
+    for (let i = snowflakes.length - 1; i >= 0; i--) {
+      const s = snowflakes[i];
+      s.phase += 0.02 * dt;
+      s.x += (s.vx * 3 + Math.sin(s.phase) * s.sway) * dt; 
+      s.y += s.vy * 0.3 * dt;
+      if (s.y > h + 10) { s.y = -10; s.x = rnd(0, w); }
+      if (s.x < -10) s.x = w + 10;
+      if (s.x > w + 10) s.x = -10;
+    }
+  }
+
+  function drawWinter() {
+    if (currentMix.winter < 0.1) return;
+    ctx.fillStyle = "#ffffff";
+    for (const s of snowflakes) { ctx.globalAlpha = currentMix.winter * 0.8; ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2); ctx.fill(); }
+    ctx.globalAlpha = 1;
+  }
+
+  function updateSpring(dt) {
+    for (const p of springPetals) {
+      p.y += p.vy * dt; p.x += Math.sin(p.y * 0.01) * 0.5 * dt; p.rot += 0.02 * dt;
+      if (p.y < -10) { p.y = h + 10; p.x = rnd(0, w); }
+    }
+    for (const b of butterflies) {
+      b.phase += 0.05 * dt; b.x += (b.vx + Math.sin(b.phase)) * dt; b.y += (b.vy + Math.cos(b.phase)) * dt;
+      if (b.x < -20) b.x = w + 20; if (b.x > w + 20) b.x = -20;
+      if (b.y < h * 0.3) b.vy = Math.abs(b.vy); if (b.y > h * 0.9) b.vy = -Math.abs(b.vy);
+    }
+  }
+
+  function drawSpring() {
+    if (currentMix.spring < 0.1) return;
+    for (const p of springPetals) {
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.fillStyle = "#ffb3d9"; ctx.globalAlpha = currentMix.spring * 0.8;
+      ctx.beginPath(); ctx.ellipse(0, 0, Math.abs(p.size), Math.abs(p.size * 0.5), 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    }
+    for (const b of butterflies) {
+      ctx.save(); ctx.translate(b.x, b.y); const flap = Math.abs(Math.sin(b.phase * 10) * 0.8); 
+      ctx.fillStyle = "#ffd166"; ctx.globalAlpha = currentMix.spring;
+      ctx.beginPath(); ctx.ellipse(-5, 0, 6, Math.max(0.1, 4 * flap), -0.4, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(5, 0, 6, Math.max(0.1, 4 * flap), 0.4, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function updateSummer(dt) {
+    for (const c of clouds) { c.x -= c.speed * dt; if (c.x < -200) c.x = w + 200; }
+    for (const d of dustParticles) {
+      d.x += d.vx * dt; d.y += d.vy * dt;
+      if (d.x < 0) d.x = w; if (d.x > w) d.x = 0; if (d.y < 0) d.y = h; if (d.y > h) d.y = 0;
+    }
+  }
+
+  function drawSummer(time) {
+    if (currentMix.summer < 0.1) return;
+
+    // --- PERGERAKAN MATAHARI SETENGAH LINGKARAN ---
+    let sunX, sunY;
+    const p = seasonProgress;
+    const startX = w * 0.15; 
+    const endX = w * 0.85;   
+    const baseY = h * 0.45;  
+    const peakY = h * 0.15;  
+
+    if (p < 0.30) {
+      // 30%: Kiri bawah melengkung ke tengah
+      const t = p / 0.30;
+      sunX = lerp(startX, w * 0.5, t);
+      sunY = baseY - Math.sin(t * Math.PI / 2) * (baseY - peakY);
+    } else if (p < 0.70) {
+      // 40%: Diam di tengah
+      sunX = w * 0.5;
+      sunY = peakY;
+    } else {
+      // 30%: Tengah melengkung ke kanan bawah
+      const t = (p - 0.70) / 0.30;
+      sunX = lerp(w * 0.5, endX, t);
+      sunY = peakY + Math.sin(t * Math.PI / 2) * (baseY - peakY);
+    }
+
+    sunX += cameraParallaxX * 0.2; 
+    const sunRadius = Math.min(w, h) * 0.05;
+    ctx.globalAlpha = currentMix.summer;
+    
+    const sunGrad = ctx.createRadialGradient(sunX, sunY, sunRadius * 0.2, sunX, sunY, sunRadius * 4);
+    sunGrad.addColorStop(0, "rgba(255, 250, 220, 1)");
+    sunGrad.addColorStop(0.2, "rgba(255, 220, 120, 0.8)");
+    sunGrad.addColorStop(1, "rgba(255, 140, 60, 0)");
+    ctx.fillStyle = sunGrad; ctx.beginPath(); ctx.arc(sunX, sunY, sunRadius * 4, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#fffbe8"; ctx.beginPath(); ctx.arc(sunX, sunY, sunRadius, 0, Math.PI * 2); ctx.fill();
+
+    for (const c of clouds) {
+      ctx.save(); ctx.translate(c.x, c.y); ctx.scale(c.scale, c.scale); 
+      ctx.fillStyle = "rgba(200, 220, 255, 0.6)";
+      for(const part of c.parts) { ctx.beginPath(); ctx.arc(part.dx, part.dy + 5, part.r, 0, Math.PI * 2); ctx.fill(); }
+      ctx.fillStyle = "#ffffff";
+      for(const part of c.parts) { ctx.beginPath(); ctx.arc(part.dx, part.dy, part.r, 0, Math.PI * 2); ctx.fill(); }
+      ctx.restore();
+    }
+
+    ctx.fillStyle = "#ffe9a8";
+    for (const d of dustParticles) {
+      ctx.globalAlpha = currentMix.summer * (0.5 + Math.sin(time*2 + d.x)*0.3);
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.size, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function updateAutumn(dt, time) {
+    if (Math.random() < 0.03 * dt) windGusts.push({ x: -50, y: rnd(h*0.5, h), vx: rnd(3, 8), life: 1 });
+    for (let i = windGusts.length - 1; i >= 0; i--) { windGusts[i].x += windGusts[i].vx * dt; windGusts[i].life -= 0.01 * dt; if (windGusts[i].life <= 0) windGusts.splice(i, 1); }
+    for (const l of autumnLeaves) {
+      const gustX = windGusts.reduce((acc, g) => Math.abs(l.x - g.x) < 200 ? acc + g.vx * (1 - Math.abs(l.x - g.x)/200) : acc, 0);
+      l.y += l.vy * dt; l.x += (l.vx + gustX) * dt; l.rot += l.vr * dt; if (l.y > h) { l.y = -10; l.x = rnd(0, w); }
+    }
+  }
+
+  function drawAutumn() {
+    if (currentMix.autumn < 0.1) return;
+    ctx.globalAlpha = currentMix.autumn;
+    for (const l of autumnLeaves) {
+      ctx.save(); ctx.translate(l.x, l.y); ctx.rotate(l.rot); ctx.fillStyle = "#e8734a";
+      ctx.beginPath(); ctx.ellipse(0, 0, Math.abs(l.size * 0.8), Math.abs(l.size * 0.4), 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawFireflies(time) {
+    if (currentMix.summer < 0.2) return;
+    ctx.globalAlpha = currentMix.summer;
+    for (const f of fireflies) {
+      const flicker = Math.sin(time * 3 + f.phase) * 0.5 + 0.5; const yOffset = Math.sin(time + f.phase) * 20;
+      ctx.fillStyle = `rgba(255, 240, 150, ${flicker})`; ctx.shadowBlur = 10; ctx.shadowColor = "#ffd166";
+      ctx.beginPath(); ctx.arc(f.x, f.y + yOffset, 2, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function loop(now) {
+    if (!running) { raf = null; return; }
+    const dt = Math.min(48, now - lastT) / 16.667; lastT = now; const time = now * 0.001;
+
+    ctx.clearRect(0, 0, w, h);
+    for (const k in currentMix) currentMix[k] = lerp(currentMix[k], targetMix[k], 0.02 * dt);
+    cameraParallaxX = Math.sin(time * 0.1) * 20;
+
+    drawBackground();
+    updateWinter(dt); updateSpring(dt); updateSummer(dt); updateAutumn(dt, time);
+    drawWinter(); drawSpring(); drawSummer(time); drawAutumn(); drawFireflies(time);
+    
+    // LOGIKA KILAT (MUNCUL DI WINTER & SUMMER SAJA, SETIAP 6 DETIK)
+    const isStormy = (songProgress >= 0.48 && songProgress <= 0.75) || (songProgress < 0.20);
+    if (isStormy) {
+      if (now > nextLightningTime) { lightningAlpha = 1; nextLightningTime = now + 6000; }
+      if (lightningAlpha > 0) {
+        lightningAlpha -= 0.05 * dt; if (lightningAlpha < 0) lightningAlpha = 0;
+        ctx.fillStyle = `rgba(255, 255, 255, ${lightningAlpha})`; ctx.fillRect(0, 0, w, h);
+      }
+    } else { lightningAlpha = 0; }
+
+    raf = requestAnimationFrame(loop);
+  }
+
+  return {
+    start() { if (running) return; running = true; resize(); lastT = performance.now(); if (!raf) raf = requestAnimationFrame(loop); },
+    stop() { running = false; if (raf) { cancelAnimationFrame(raf); raf = null; } ctx.clearRect(0, 0, w, h); },
+    setSeason(s, progress) {
+      seasonProgress = clamp(progress || 0, 0, 1);
+      songProgress = clamp(progress || 0, 0, 1);
+      if (season !== s) {
+        season = s; document.body.setAttribute("data-season", s);
+        for (const k in targetMix) targetMix[k] = (k === s) ? 1 : 0;
+      }
+    }
+  };
+})();
+
+/* =========================================================
+   CINEMA
+   ========================================================= */
+const Cinema = (() => {
+  const $lyric       = $("#cinemaLyric");
+  const $lyricWrap   = $("#lyricWrap");
+  const $opening     = $("#cinemaOpening");
+  const $ending      = $("#cinemaEnding");
+  const $endingName  = $("#endingName");
+  const $seasonLabel = $("#seasonLabel");
+  const $transition  = $("#cinemaTransition");
+  const $playBtn     = $("#playerPlay");
+  const $stopBtn     = $("#playerStop");
+  const $prevBtn     = $("#playerPrev");
+  const $nextBtn     = $("#playerNext");
+  const $progress    = $("#playerProgress");
+  const $progressFill= $("#playerProgressFill");
+  const $cur         = $("#playerCurrent");
+  const $dur         = $("#playerDuration");
+
+  const SEASON_LABELS = { winter: "winter", spring: "spring", summer: "summer", autumn: "autumn" };
+  const SEASONS_ORDER = ["winter", "spring", "summer", "autumn"];
+  const TRANSITION_DARK_MS = 1500; const TRANSITION_BLACK_MS = 3000; const TRANSITION_FADE_MS = 2500;
+
+  let audio = null;
+  let lyrics = [];
+  let currentLyricIdx = -1;
+  let openingDismissed = false;
+  let finaleTriggered = false;
+  let finaleActive = false;
+  let initialized = false;
+  let currentSeason = "";
+  let lastSeasonIdx = -1;
+  let transitionActive = false;
+  let pendingTimeouts = [];
+  let seasonBounds = null;
+
+  const FALLBACK_LYRICS = [
+    { time: 0,   text: "For you, the softest one" },
+    { time: 8,   text: "Happy birthday, my dear" },
+    { time: 16,  text: "Today the world celebrates you" },
+    { time: 24,  text: "Every little laugh of yours..." },
+    { time: 32,  text: "...makes my days warmer" },
+    { time: 40,  text: "Every story you tell..." },
+    { time: 48,  text: "...is a home to me" },
+    { time: 56,  text: "Thank you for being here" },
+    { time: 64,  text: "Thank you for holding on" },
+    { time: 72,  text: "May this year..." },
+    { time: 80,  text: "...be filled with good things" },
+    { time: 88,  text: "A calm heart, dreams come true" },
+    { time: 96,  text: "And people who love you" },
+    { time: 104, text: "Truly and wholeheartedly" },
+    { time: 112, text: "You deserve all of it" },
+    { time: 120, text: "Happy birthday, my love 🤍" }
+  ];
+
+  function scheduleTimeout(fn, delay){
+    const id = setTimeout(() => { pendingTimeouts = pendingTimeouts.filter(x => x !== id); fn(); }, delay);
+    pendingTimeouts.push(id); return id;
+  }
+  function clearAllPendingTimeouts(){ pendingTimeouts.forEach(id => clearTimeout(id)); pendingTimeouts = []; }
+
+  function computeSeasonBounds(){
+    const d = (audio && audio.duration && isFinite(audio.duration)) ? audio.duration : CONFIG.expectedDuration;
+    const scale = d / CONFIG.expectedDuration;
+    return [
+      { id: "winter", start: 0,               end: 59 * scale },
+      { id: "spring", start: 59 * scale,      end: 119 * scale },
+      { id: "summer", start: 119 * scale,     end: 179 * scale },
+      { id: "autumn", start: 179 * scale,     end: d }
+    ];
+  }
+
+  function getSeasonAt(t){
+    if (!seasonBounds) seasonBounds = computeSeasonBounds();
+    for (const b of seasonBounds){ if (t >= b.start && t < b.end){ const progress = (t - b.start) / (b.end - b.start); return { id: b.id, progress: clamp(progress, 0, 1) }; } }
+    const last = seasonBounds[seasonBounds.length - 1]; return { id: last.id, progress: 1 };
+  }
+
+  function applySeasonDirect(id, progress){
+    currentSeason = id; lastSeasonIdx = SEASONS_ORDER.indexOf(id);
+    Seasons.setSeason(id, progress); Sky.setSeason(id); if ($seasonLabel) $seasonLabel.textContent = SEASON_LABELS[id];
+  }
+
+  async function init(){
+    if (initialized) return;
+    initialized = true; audio = ClosingMusic.audio; if ($endingName) $endingName.textContent = CONFIG.name;
+    audio.addEventListener("timeupdate", onTimeUpdate); audio.addEventListener("play", updatePlayBtn); audio.addEventListener("pause", updatePlayBtn);
+    audio.addEventListener("ended", onEnded); audio.addEventListener("seeked", onSeeked); audio.addEventListener("loadedmetadata", onMeta);
+    audio.addEventListener("error", () => { const $artist = $("#playerArtist"); if ($artist) $artist.textContent = "Song not found"; });
+
+    $playBtn.addEventListener("click", () => { if (audio.paused){ if (audio.ended) audio.currentTime = 0; ClosingMusic.play(); } else { ClosingMusic.pause(); } });
+    $stopBtn.addEventListener("click", () => { ClosingMusic.stop(); resetState(); syncFromAudio(true); });
+    $prevBtn.addEventListener("click", () => seekBy(-10));
+    $nextBtn.addEventListener("click", () => seekBy(10));
+    $progress.addEventListener("click", seekFromClick);
+
+    lyrics = await loadLyrics(); updatePlayBtn(); if (audio.duration) onMeta();
+  }
+
+  function seekBy(sec){ if (!audio || !audio.duration) return; audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + sec)); syncFromAudio(true); }
+
+  async function loadLyrics(){
+    try { const r = await fetch(CONFIG.closingLyricsSrc); if (r.ok){ const data = await r.json(); const lines = Array.isArray(data) ? data : (data.lines || []); if (lines.length){ if (data.title) { const $t = $("#playerTitle"); if ($t) $t.textContent = data.title; } if (data.artist) { const $a = $("#playerArtist"); if ($a) $a.textContent = data.artist; } return lines.slice().sort((a,b) => a.time - b.time); } } } catch(e){}
+    try { const r = await fetch(CONFIG.closingLyricsLrc); if (r.ok){ const parsed = parseLRC(await r.text()); if (parsed.length) return parsed; } } catch(e){}
+    return FALLBACK_LYRICS;
+  }
+
+  function parseLRC(text){
+    const out = []; const re = /\[(\d{1,3}):(\d{1,2}(?:\.\d+)?)\]\s*(.*)/;
+    for (const l of text.split(/\r?\n/)){ const m = l.match(re); if (m){ const t = parseInt(m[1]) * 60 + parseFloat(m[2]); const txt = m[3].trim(); if (txt) out.push({ time: t, text: txt }); } }
+    return out.sort((a,b) => a.time - b.time);
+  }
+
+  function getLyricIndexAt(t){ let idx = -1; for (let i = lyrics.length - 1; i >= 0; i--){ if (lyrics[i].time <= t) { idx = i; break; } } return idx; }
+  function onTimeUpdate(){ if (!isActive()) return; syncFromAudio(false); }
+
+  function syncFromAudio(){
+    if (!audio || !audio.duration || isNaN(audio.duration)) return;
+    const rawT = audio.currentTime; const t = rawT;
+    
+    if (!openingDismissed && t >= 5){ $opening.classList.add("reveal"); openingDismissed = true; }
+
+    // LOGIKA MUNCULKAN TEKS DI DETIK 195 (3:15)
+    if (!finaleTriggered && rawT >= 199) {
+      finaleTriggered = true;
+      $lyric.classList.remove("show");
+      $lyric.textContent = "";
+      currentLyricIdx = -1;
+      document.body.classList.add("on-finale");
+      if ($ending) $ending.classList.add("show");
+      if (typeof Fireworks !== 'undefined' && Fireworks.heartFinale) Fireworks.heartFinale();
+    }
+
+    if (!finaleActive && !finaleTriggered){
+      const info = getSeasonAt(t); const seasonIdx = SEASONS_ORDER.indexOf(info.id);
+      if (transitionActive) { /* skip */ }
+      else if (lastSeasonIdx === -1){ applySeasonDirect(info.id, info.progress); }
+      else if (seasonIdx !== lastSeasonIdx){ triggerSeasonTransition(info.id); }
+      else { Seasons.setSeason(info.id, info.progress); }
+
+      const lyricIdx = getLyricIndexAt(t);
+      if (lyricIdx !== currentLyricIdx){ updateLyric(lyricIdx); currentLyricIdx = lyricIdx; }
+    }
+
+    $progressFill.style.width = ((rawT / audio.duration) * 100) + "%"; $cur.textContent = fmt(rawT);
+  }
+
+  function triggerSeasonTransition(newSeasonId){
+    if (transitionActive) return; transitionActive = true;
+    $lyricWrap.classList.add("faded");
+    $transition.style.transition = "opacity " + (TRANSITION_DARK_MS / 1000) + "s ease"; $transition.style.opacity = "0.92";
+
+    scheduleTimeout(() => {
+      Fireworks.burstTransition(newSeasonId);
+      scheduleTimeout(() => {
+        currentSeason = newSeasonId; Seasons.setSeason(newSeasonId, 0); Sky.setSeason(newSeasonId); if ($seasonLabel) $seasonLabel.textContent = SEASON_LABELS[newSeasonId];
+        $transition.style.transition = "opacity " + (TRANSITION_FADE_MS / 1000) + "s ease"; $transition.style.opacity = "0";
+        scheduleTimeout(() => { $lyricWrap.classList.remove("faded"); lastSeasonIdx = SEASONS_ORDER.indexOf(newSeasonId); transitionActive = false; }, TRANSITION_FADE_MS + 100);
+      }, TRANSITION_BLACK_MS);
+    }, TRANSITION_DARK_MS);
+  }
+
+  function updateLyric(idx){ $lyric.classList.remove("show"); void $lyric.offsetWidth; if (idx === -1){ $lyric.textContent = ""; return; } const line = lyrics[idx]; $lyric.textContent = line.text; $lyric.classList.add("show"); }
+
+  function onEnded(){
+    if (finaleActive) return; finaleActive = true;
+    // Jika lagu habis sebelum 3:15, paksa munculkan teks
+    if (!finaleTriggered) {
+      document.body.classList.add("on-finale");
+      if ($ending) $ending.classList.add("show");
+      if (typeof Fireworks !== 'undefined' && Fireworks.heartFinale) Fireworks.heartFinale();
+    }
+  }
+
+  function onSeeked(){
+    if (!audio || !audio.duration) return;
+    const wasFinale = finaleActive; const wasTransition = transitionActive;
+    
+    if (audio.currentTime < 195) {
+      finaleTriggered = false;
+      if (finaleActive) { finaleActive = false; $ending.classList.remove("show"); document.body.classList.remove("on-finale"); }
+    }
+    
+    if (wasTransition){ clearAllPendingTimeouts(); transitionActive = false; $transition.style.transition = "none"; $transition.style.opacity = "0"; $lyricWrap.classList.remove("faded"); }
+    
+    if (!finaleTriggered) {
+      const info = getSeasonAt(audio.currentTime); applySeasonDirect(info.id, info.progress); currentLyricIdx = -1;
+    }
+  }
+
+  function seekFromClick(e){ if (!audio || !audio.duration) return; const r = $progress.getBoundingClientRect(); const p = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)); audio.currentTime = p * audio.duration; syncFromAudio(true); }
+  function onMeta(){ if (audio.duration){ if ($dur) $dur.textContent = fmt(audio.duration); seasonBounds = computeSeasonBounds(); } }
+  function updatePlayBtn(){ if (!audio) return; $playBtn.classList.toggle("playing", !audio.paused); }
+  function isActive(){ return document.getElementById("page-closing").classList.contains("active"); }
+  function fmt(sec){ if (!isFinite(sec)) return "0:00"; return Math.floor(sec / 60) + ":" + String(Math.floor(sec % 60)).padStart(2, "0"); }
+
+  function resetState(){
+    clearAllPendingTimeouts(); currentLyricIdx = -1; openingDismissed = false; finaleTriggered = false; finaleActive = false; transitionActive = false; lastSeasonIdx = -1; currentSeason = "";
+    $ending.classList.remove("show"); $opening.classList.remove("reveal"); $lyric.classList.remove("show"); $lyric.textContent = "";
+    $transition.style.transition = "none"; $transition.style.opacity = "0"; $lyricWrap.classList.remove("faded"); document.body.classList.remove("on-finale"); document.body.removeAttribute("data-season");
+  }
+
+  document.addEventListener("pagechange", async (e) => {
+    if (e.detail.id === "closing"){
+      await init(); openingDismissed = audio.currentTime >= 5; if (openingDismissed) $opening.classList.add("reveal");
+      seasonBounds = computeSeasonBounds(); const info = getSeasonAt(audio.currentTime); applySeasonDirect(info.id, info.progress);
+      Sky.start(); Seasons.start();
+      scheduleTimeout(() => { if (ClosingMusic.audio.paused && ClosingMusic.audio.currentTime < 0.1){ ClosingMusic.play(); } currentLyricIdx = -1; syncFromAudio(true); updatePlayBtn(); }, 100);
+    } else {
+      clearAllPendingTimeouts(); transitionActive = false; finaleActive = false;
+      Sky.stop(); Seasons.stop(); Fireworks.stop();
+      $transition.style.transition = "none"; $transition.style.opacity = "0"; $lyricWrap.classList.remove("faded");
+    }
+  });
+
+  return { init };
 })();
 </script>
 </body>
